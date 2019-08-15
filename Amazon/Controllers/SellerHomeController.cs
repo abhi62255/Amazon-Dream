@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Amazon.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,87 +14,71 @@ namespace Amazon.Controllers
         // GET: SellerHome
         public ActionResult Index()
         {
-            var id = Convert.ToInt32(Session["SellerID"]);
-            var value = _db.SellerRequest.Where(s => s.Seller_ID == id).FirstOrDefault();
-            if(value != null)
-            {
-                
-                return Content("Your profile is still not verified");
-            }
-
             return View();
         }
 
-        // GET: SellerHome/Details/5
-        public ActionResult Details(int id)
+        [HttpGet]
+        public ActionResult AddProduct()
         {
             return View();
         }
 
-        // GET: SellerHome/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: SellerHome/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult AddProduct(ProductAndDescription model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
+                Product modelP = new Product();
+                ProductDescrption modelD = new ProductDescrption();
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+                modelP.ProductName = model.ProductName;
+                modelP.ProductPrice = model.ProductPrice;
+                modelP.ProductQuantity = model.ProductQuantity;
+                modelP.ProductDiscount = model.ProductDiscount;
+                _db.Product.Add(modelP);
+                _db.SaveChanges();
 
-        // GET: SellerHome/Edit/5
-        public ActionResult Edit(int id)
-        {
+                Session["Product_ID"] = Convert.ToInt32(modelP.ID);
+
+                modelD.Product_ID = modelP.ID;
+                modelD.ProductCategory = model.ProductCategory;
+                modelD.ProductSubCategory = model.ProductSubCategory;
+                modelD.ProductBrand = model.ProductBrand;
+                modelD.ProductGenderType = model.ProductGenderType;
+                modelD.ProductDescription = model.ProductDescription;
+                _db.ProductDescrption.Add(modelD);
+
+                ProductRequest modelPR = new ProductRequest();
+                modelPR.Product_ID = modelP.ID;
+                _db.ProductRequest.Add(modelPR);
+
+
+                _db.SaveChanges();
+
+                return RedirectToAction("AddPicture", "SellerHome");
+            }
+
             return View();
         }
 
-        // POST: SellerHome/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: SellerHome/Delete/5
-        public ActionResult Delete(int id)
+        [HttpGet]
+        public ActionResult AddPicture()
         {
             return View();
         }
-
-        // POST: SellerHome/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult AddPicture(ProductPicture model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
+                model.Product_ID = Convert.ToInt32(Session["Product_ID"]);
+                _db.ProductPicture.Add(model);
+                _db.SaveChanges();
+                return RedirectToAction("AddPicture", "SellerHome");
             }
-            catch
-            {
-                return View();
-            }
+            return View(model);
         }
+
     }
 }

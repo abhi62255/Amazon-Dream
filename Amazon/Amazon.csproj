@@ -128,6 +128,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminHomeController.cs" />
+    <Compile Include="Controllers\AdminProductRequestsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegisterLoginController.cs" />
     <Compile Include="Controllers\SellerHomeController.cs" />
@@ -160,12 +161,17 @@
     <Compile Include="Migrations\201908151127156_productRequest.Designer.cs">
       <DependentUpon>201908151127156_productRequest.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908151327222_productRequest1.cs" />
+    <Compile Include="Migrations\201908151327222_productRequest1.Designer.cs">
+      <DependentUpon>201908151327222_productRequest1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Password.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductAndDescription.cs" />
     <Compile Include="Models\ProductDescrption.cs" />
     <Compile Include="Models\ProductPicture.cs" />
     <Compile Include="Models\ProductRequest.cs" />
@@ -225,6 +231,14 @@
     <Content Include="Views\AdminSellerRequests\Index.cshtml" />
     <Content Include="Views\AdminSellerRequests\_ViewStart.cshtml" />
     <Content Include="Views\AdminSellerRequests\Delete.cshtml" />
+    <Content Include="Views\SellerHome\AddProduct.cshtml" />
+    <Content Include="Views\SellerHome\AddPicture.cshtml" />
+    <Content Include="Views\AdminProductRequests\Create.cshtml" />
+    <Content Include="Views\AdminProductRequests\Delete.cshtml" />
+    <Content Include="Views\AdminProductRequests\Details.cshtml" />
+    <Content Include="Views\AdminProductRequests\Edit.cshtml" />
+    <Content Include="Views\AdminProductRequests\Index.cshtml" />
+    <Content Include="Views\AdminProductRequests\Accept.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -260,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908151127156_productRequest.resx">
       <DependentUpon>201908151127156_productRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908151327222_productRequest1.resx">
+      <DependentUpon>201908151327222_productRequest1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

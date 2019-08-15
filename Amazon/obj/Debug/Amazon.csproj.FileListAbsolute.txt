@@ -85,3 +85,4 @@ D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.Migrations.AdminT
 D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.Migrations.product.resources
 D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.Migrations.sellerRequest.resources
 D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.Migrations.productRequest.resources
+D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.Migrations.productRequest1.resources

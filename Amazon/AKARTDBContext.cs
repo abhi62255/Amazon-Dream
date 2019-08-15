@@ -27,5 +27,9 @@ namespace Amazon
 
         [NotMapped]
         public System.Data.Entity.DbSet<Amazon.Models.SellerAddress> SellerAddresses { get; set; }
+
+        [NotMapped]
+        public System.Data.Entity.DbSet<Amazon.Models.ProductAndDescription> ProductAndDescription { get; set; }
+
     }
 }

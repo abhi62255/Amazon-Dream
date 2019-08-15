@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Amazon.Models.ProductRequest>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.ProductName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.ProductName)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id = item.Product_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID ,Product_ID= item.Product_ID }) |
+            @Html.ActionLink("Accept", "Accept", new { id = item.ID })
+
+        </td>
+    </tr>
+}
+
+</table>
