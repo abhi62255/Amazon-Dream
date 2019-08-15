@@ -82,3 +82,6 @@ D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.Migrations.Initia
 D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.csproj.GenerateResource.cache
 D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.Migrations.Initial1.resources
 D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.Migrations.AdminTable.resources
+D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.Migrations.product.resources
+D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.Migrations.sellerRequest.resources
+D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.Migrations.productRequest.resources

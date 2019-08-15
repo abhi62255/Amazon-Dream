@@ -38,6 +38,8 @@ namespace Amazon.Models
 
 
         public virtual ICollection<Address> Address { get; set; }
+        public virtual ICollection<Seller> Sellers { get; set; }
+
 
     }
 }

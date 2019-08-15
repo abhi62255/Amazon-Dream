@@ -82,9 +82,16 @@ namespace Amazon.Controllers
                 }
                 else
                 {
-                    FormsAuthentication.SetAuthCookie("SELLER", false);
                     Session["SellerID"] = seller.ID;
                     Session["Identity"] = "SELLER";
+                    var id = Convert.ToInt32(Session["SellerID"]);
+                    var value = _db.SellerRequest.Where(s => s.Seller_ID == id).FirstOrDefault();
+                    if (value != null)
+                    {
+
+                        return Content("Your profile is still not verified");
+                    }
+                    FormsAuthentication.SetAuthCookie("SELLER", false);
                     return RedirectToAction("Index", "SellerHome");
                 }
             }
@@ -143,10 +150,12 @@ namespace Amazon.Controllers
                 _db.SaveChanges();
 
 
-                FormsAuthentication.SetAuthCookie(modelS.SellerName, false);
-                Session["SellerID"] = modelS.ID;
-                Session["Identity"] = "SELLER";
-                return RedirectToAction("Index", "SellerHome");
+                var modelSR = new SellerRequest();
+                modelSR.Seller_ID = modelS.ID;
+                _db.SellerRequest.Add(modelSR);
+                _db.SaveChanges();
+
+                return RedirectToAction("LogIn", "RegisterLogin");
             }
             return View(model);
 

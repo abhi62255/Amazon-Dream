@@ -9,9 +9,18 @@ namespace Amazon.Controllers
     [Authorize(Users ="SELLER")]
     public class SellerHomeController : Controller
     {
+        AKARTDBContext _db = new AKARTDBContext();
         // GET: SellerHome
         public ActionResult Index()
         {
+            var id = Convert.ToInt32(Session["SellerID"]);
+            var value = _db.SellerRequest.Where(s => s.Seller_ID == id).FirstOrDefault();
+            if(value != null)
+            {
+                
+                return Content("Your profile is still not verified");
+            }
+
             return View();
         }
 

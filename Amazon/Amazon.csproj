@@ -131,6 +131,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegisterLoginController.cs" />
     <Compile Include="Controllers\SellerHomeController.cs" />
+    <Compile Include="Controllers\AdminSellerRequestsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -147,13 +148,30 @@
     <Compile Include="Migrations\201908150933007_AdminTable.Designer.cs">
       <DependentUpon>201908150933007_AdminTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908151058288_product.cs" />
+    <Compile Include="Migrations\201908151058288_product.Designer.cs">
+      <DependentUpon>201908151058288_product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908151108564_sellerRequest.cs" />
+    <Compile Include="Migrations\201908151108564_sellerRequest.Designer.cs">
+      <DependentUpon>201908151108564_sellerRequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908151127156_productRequest.cs" />
+    <Compile Include="Migrations\201908151127156_productRequest.Designer.cs">
+      <DependentUpon>201908151127156_productRequest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Password.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductDescrption.cs" />
+    <Compile Include="Models\ProductPicture.cs" />
+    <Compile Include="Models\ProductRequest.cs" />
     <Compile Include="Models\Seller.cs" />
     <Compile Include="Models\SellerAddress.cs" />
+    <Compile Include="Models\SellerRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -201,6 +219,12 @@
     <Content Include="Views\AdminHome\Index.cshtml" />
     <Content Include="Views\AdminHome\_ViewStart.cshtml" />
     <Content Include="Views\SellerHome\_ViewStart.cshtml" />
+    <Content Include="Views\AdminSellerRequests\Create.cshtml" />
+    <Content Include="Views\AdminSellerRequests\Accept.cshtml" />
+    <Content Include="Views\AdminSellerRequests\Details.cshtml" />
+    <Content Include="Views\AdminSellerRequests\Index.cshtml" />
+    <Content Include="Views\AdminSellerRequests\_ViewStart.cshtml" />
+    <Content Include="Views\AdminSellerRequests\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -227,6 +251,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908150933007_AdminTable.resx">
       <DependentUpon>201908150933007_AdminTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908151058288_product.resx">
+      <DependentUpon>201908151058288_product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908151108564_sellerRequest.resx">
+      <DependentUpon>201908151108564_sellerRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908151127156_productRequest.resx">
+      <DependentUpon>201908151127156_productRequest.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

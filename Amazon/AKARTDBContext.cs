@@ -14,6 +14,15 @@ namespace Amazon
         public virtual DbSet<Seller> Seller { get; set; }
         public virtual DbSet<Address> Address { get; set; }
         public virtual DbSet<Admin> Admin { get; set; }
+        public virtual DbSet<Product> Product { get; set; }
+        public virtual DbSet<ProductDescrption> ProductDescrption { get; set; }
+        public virtual DbSet<ProductPicture> ProductPicture { get; set; }
+        public virtual DbSet<SellerRequest> SellerRequest { get; set; }
+        public virtual DbSet<ProductRequest> ProductRequest { get; set; }
+
+
+
+
 
 
         [NotMapped]
