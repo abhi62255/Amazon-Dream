@@ -28,6 +28,11 @@ namespace Amazon.Models
         public int ProductDiscount { get; set; }
 
 
+        [ForeignKey("Seller")]
+        public int Seller_ID { get; set; }
+        public virtual Seller Seller { get; set; }
+
+
         public virtual ICollection<ProductPicture> ProductPicture { get; set; }
         public virtual ICollection<ProductDescrption> ProductDescrption { get; set; }
         public virtual ICollection<ProductRequest> ProductRequest { get; set; }

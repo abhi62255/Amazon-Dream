@@ -78,11 +78,6 @@ D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.csproj.CoreCompil
 D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.csproj.CopyComplete
 D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.dll
 D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.pdb
-D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.Migrations.Initial.resources
+D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.Migrations.Intial.resources
 D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.csproj.GenerateResource.cache
-D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.Migrations.Initial1.resources
-D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.Migrations.AdminTable.resources
-D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.Migrations.product.resources
-D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.Migrations.sellerRequest.resources
-D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.Migrations.productRequest.resources
-D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.Migrations.productRequest1.resources
+D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.Migrations.Intial1.resources

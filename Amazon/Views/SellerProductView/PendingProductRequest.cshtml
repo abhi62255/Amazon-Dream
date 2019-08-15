@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Amazon.Models.Product>
+
+@{
+    ViewBag.Title = "PendingProductRequest";
+}
+
+<h2>PendingProductRequest</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Seller.SellerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductQuantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductDiscount)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Seller.SellerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductQuantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductDiscount)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditPR", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "DeletePR", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

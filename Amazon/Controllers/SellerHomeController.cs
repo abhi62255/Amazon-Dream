@@ -35,6 +35,7 @@ namespace Amazon.Controllers
                 modelP.ProductPrice = model.ProductPrice;
                 modelP.ProductQuantity = model.ProductQuantity;
                 modelP.ProductDiscount = model.ProductDiscount;
+                modelP.Seller_ID = Convert.ToInt32(Session["SellerID"]);
                 _db.Product.Add(modelP);
                 _db.SaveChanges();
 

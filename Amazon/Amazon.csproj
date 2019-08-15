@@ -133,37 +133,18 @@
     <Compile Include="Controllers\RegisterLoginController.cs" />
     <Compile Include="Controllers\SellerHomeController.cs" />
     <Compile Include="Controllers\AdminSellerRequestsController.cs" />
+    <Compile Include="Controllers\SellerProductViewController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Hashing.cs" />
-    <Compile Include="Migrations\201908150920273_Initial.cs" />
-    <Compile Include="Migrations\201908150920273_Initial.Designer.cs">
-      <DependentUpon>201908150920273_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201908151536400_Intial.cs" />
+    <Compile Include="Migrations\201908151536400_Intial.Designer.cs">
+      <DependentUpon>201908151536400_Intial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201908150924086_Initial1.cs" />
-    <Compile Include="Migrations\201908150924086_Initial1.Designer.cs">
-      <DependentUpon>201908150924086_Initial1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908150933007_AdminTable.cs" />
-    <Compile Include="Migrations\201908150933007_AdminTable.Designer.cs">
-      <DependentUpon>201908150933007_AdminTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908151058288_product.cs" />
-    <Compile Include="Migrations\201908151058288_product.Designer.cs">
-      <DependentUpon>201908151058288_product.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908151108564_sellerRequest.cs" />
-    <Compile Include="Migrations\201908151108564_sellerRequest.Designer.cs">
-      <DependentUpon>201908151108564_sellerRequest.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908151127156_productRequest.cs" />
-    <Compile Include="Migrations\201908151127156_productRequest.Designer.cs">
-      <DependentUpon>201908151127156_productRequest.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908151327222_productRequest1.cs" />
-    <Compile Include="Migrations\201908151327222_productRequest1.Designer.cs">
-      <DependentUpon>201908151327222_productRequest1.cs</DependentUpon>
+    <Compile Include="Migrations\201908151538050_Intial1.cs" />
+    <Compile Include="Migrations\201908151538050_Intial1.Designer.cs">
+      <DependentUpon>201908151538050_Intial1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
@@ -239,6 +220,15 @@
     <Content Include="Views\AdminProductRequests\Edit.cshtml" />
     <Content Include="Views\AdminProductRequests\Index.cshtml" />
     <Content Include="Views\AdminProductRequests\Accept.cshtml" />
+    <Content Include="Views\AdminProductRequests\_ViewStart.cshtml" />
+    <Content Include="Views\SellerProductView\Delete.cshtml" />
+    <Content Include="Views\SellerProductView\Details.cshtml" />
+    <Content Include="Views\SellerProductView\Edit.cshtml" />
+    <Content Include="Views\SellerProductView\Index.cshtml" />
+    <Content Include="Views\SellerProductView\_ViewStart.cshtml" />
+    <Content Include="Views\SellerProductView\PendingProductRequest.cshtml" />
+    <Content Include="Views\SellerProductView\EditPR.cshtml" />
+    <Content Include="Views\SellerProductView\DeletePR.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -257,26 +247,11 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201908150920273_Initial.resx">
-      <DependentUpon>201908150920273_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908151536400_Intial.resx">
+      <DependentUpon>201908151536400_Intial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908150924086_Initial1.resx">
-      <DependentUpon>201908150924086_Initial1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908150933007_AdminTable.resx">
-      <DependentUpon>201908150933007_AdminTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908151058288_product.resx">
-      <DependentUpon>201908151058288_product.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908151108564_sellerRequest.resx">
-      <DependentUpon>201908151108564_sellerRequest.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908151127156_productRequest.resx">
-      <DependentUpon>201908151127156_productRequest.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908151327222_productRequest1.resx">
-      <DependentUpon>201908151327222_productRequest1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908151538050_Intial1.resx">
+      <DependentUpon>201908151538050_Intial1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
