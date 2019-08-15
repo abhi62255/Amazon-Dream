@@ -16,17 +16,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("AMAZON Admin", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("AMAZON Admin", "Index", "AdminHome", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "AdminHome")</li>
-                    <li>@Html.ActionLink("About", "About", "AdminHome")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "AdminHome")</li>
                     <li>@Html.ActionLink("Verify Sellers", "Index", "AdminSellerRequests")</li>
                     <li>@Html.ActionLink("Verify Products", "Index", "AdminProductRequests")</li>
-
-
                 </ul>
                 
                 <ul class="nav navbar-right">
@@ -37,7 +33,7 @@
                     }
                     else
                     {
-                        <li>@Html.ActionLink(" Welcome " + @User.Identity.Name, "Index", "Home")</li><
+                        <li>@Html.ActionLink(" Welcome " + @User.Identity.Name, "Index", "Home")</li>
                         <li>@Html.ActionLink("LogOut", "LogOut", "RegisterLogin")</li>
                     }
                 </ul>
@@ -45,14 +41,10 @@
         </div>
     </div>
     <div class="container body-content">
-        <h1>Admin</h1>
         @RenderBody()
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My AMAZON Dream</p>
-            <ul>
-                <li>@Html.ActionLink("Seller Account", "SellerRegistration", "RegisterLogin")</li>
-            </ul>
         </footer>
     </div>
 

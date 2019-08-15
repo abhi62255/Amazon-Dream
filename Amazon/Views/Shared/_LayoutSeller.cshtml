@@ -16,13 +16,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Amazon Seller", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Amazon Seller", "Index", "SellerHome", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Home", "Index", "SellerHome")</li>
                     <li>@Html.ActionLink("Add Product", "AddProduct", "SellerHome")</li>
                     <li>@Html.ActionLink("View Product", "Index", "SellerProductView")</li>
                     <li>@Html.ActionLink("Pending Request", "PendingProductRequest", "SellerProductView")</li>
@@ -39,7 +37,7 @@
                     }
                     else
                     {
-                        <li>@Html.ActionLink(" Welcome " + @User.Identity.Name, "Index", "Home")</li><
+                        <li>@Html.ActionLink(" Welcome " + @User.Identity.Name, "Index", "Home")</li>
                         <li>@Html.ActionLink("LogOut", "LogOut", "RegisterLogin")</li>
                     }
                 </ul>
@@ -47,14 +45,11 @@
         </div>
     </div>
     <div class="container body-content">
-        <h2>Seller</h2>
+        <hr />
         @RenderBody()
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My AMAZON Dream</p>
-            <ul>
-                <li>@Html.ActionLink("Seller Account", "SellerRegistration", "RegisterLogin")</li>
-            </ul>
         </footer>
     </div>
 

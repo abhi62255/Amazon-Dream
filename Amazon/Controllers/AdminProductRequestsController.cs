@@ -11,6 +11,7 @@ using Amazon.Models;
 
 namespace Amazon.Controllers
 {
+    [Authorize(Users = "ADMIN")]
     public class AdminProductRequestsController : Controller
     {
         private AKARTDBContext db = new AKARTDBContext();
