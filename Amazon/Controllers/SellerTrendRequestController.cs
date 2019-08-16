@@ -19,13 +19,26 @@ namespace Amazon.Controllers
         // GET: SellerTrendRequestS
         public ActionResult Index()
         {
+            var modelTRR = new List<TrendRequest>();
             var id = Convert.ToInt32(Session["SellerID"]);
-            var modelP = db.Product.Where(p => p.ID == id).ToList();
+            var modelP = db.Product.Where(p => p.Seller_ID == id).Select(p=>p.ID).ToList();
             var modelTR = db.TrendRequest.Select(p => p.Product_ID).ToList();//need refactor
+
+            foreach(var i in modelP)
+            {
+                foreach(var j in modelTR)
+                {
+                    if(i==j)
+                    {
+                        var pro = db.TrendRequest.Where(t => t.Product_ID == j).FirstOrDefault();
+                        modelTRR.Add(pro);
+                    }
+                }
+            }
 
             var trendRequest = db.TrendRequest.Include(t => t.Product);
 
-            return View(trendRequest.ToList());
+            return View(modelTRR.ToList());
         }
 
       
