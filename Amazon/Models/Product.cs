@@ -36,6 +36,10 @@ namespace Amazon.Models
         public virtual ICollection<ProductPicture> ProductPicture { get; set; }
         public virtual ICollection<ProductDescrption> ProductDescrption { get; set; }
         public virtual ICollection<ProductRequest> ProductRequest { get; set; }
+        public virtual ICollection<Trend> Trend { get; set; }
+        public virtual ICollection<TrendRequest> TrendRequest { get; set; }
+
+
 
     }
 }

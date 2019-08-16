@@ -20,15 +20,20 @@ namespace Amazon.Controllers
         // GET: SellerProductView
         public ActionResult Index()
         {
-            var id = Convert.ToInt32(Session["SellerID"]);
+            int id = Convert.ToInt32(Session["SellerID"]);
             var modelP = db.Product.Where(p => p.Seller_ID == id).ToList();
             var modelPR = db.ProductRequest.Select(p => p.Product_ID).ToList();
-
-            foreach (var i in modelPR)
+            var modelPP = new List<Product>();
+            foreach (var pro in modelPR)
             {
-                var pro = db.Product.Where(p => p.ID == i).FirstOrDefault();
+                var product = db.Product.Where(p => p.Seller_ID == id && p.ID == pro).FirstOrDefault();
+                modelPP.Add(product);
+            }
+            foreach (var pro in modelPP)
+            {
                 modelP.Remove(pro);
             }
+
             return View(modelP);
         }
 

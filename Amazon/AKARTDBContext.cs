@@ -19,6 +19,10 @@ namespace Amazon
         public virtual DbSet<ProductPicture> ProductPicture { get; set; }
         public virtual DbSet<SellerRequest> SellerRequest { get; set; }
         public virtual DbSet<ProductRequest> ProductRequest { get; set; }
+        public virtual DbSet<Trend> Trend { get; set; }
+        public virtual DbSet<TrendRequest> TrendRequest { get; set; }
+
+
 
 
 

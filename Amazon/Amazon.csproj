@@ -129,12 +129,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminHomeController.cs" />
     <Compile Include="Controllers\AdminProductRequestsController.cs" />
+    <Compile Include="Controllers\AdminProductTrendController.cs" />
     <Compile Include="Controllers\AdminProductViewController.cs" />
     <Compile Include="Controllers\AdminSellerViewController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegisterLoginController.cs" />
     <Compile Include="Controllers\SellerHomeController.cs" />
     <Compile Include="Controllers\AdminSellerRequestsController.cs" />
+    <Compile Include="Controllers\SellerProductInTrendController.cs" />
     <Compile Include="Controllers\SellerProductViewController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -147,6 +149,14 @@
     <Compile Include="Migrations\201908151538050_Intial1.cs" />
     <Compile Include="Migrations\201908151538050_Intial1.Designer.cs">
       <DependentUpon>201908151538050_Intial1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908160824173_trend.cs" />
+    <Compile Include="Migrations\201908160824173_trend.Designer.cs">
+      <DependentUpon>201908160824173_trend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908160915409_trendRequest.cs" />
+    <Compile Include="Migrations\201908160915409_trendRequest.Designer.cs">
+      <DependentUpon>201908160915409_trendRequest.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
@@ -161,6 +171,8 @@
     <Compile Include="Models\Seller.cs" />
     <Compile Include="Models\SellerAddress.cs" />
     <Compile Include="Models\SellerRequest.cs" />
+    <Compile Include="Models\Trend.cs" />
+    <Compile Include="Models\TrendRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -236,6 +248,12 @@
     <Content Include="Views\AdminSellerView\Delete.cshtml" />
     <Content Include="Views\AdminSellerView\Index.cshtml" />
     <Content Include="Views\AdminSellerView\_ViewStart.cshtml" />
+    <Content Include="Views\AdminProductTrend\Create.cshtml" />
+    <Content Include="Views\AdminProductTrend\Delete.cshtml" />
+    <Content Include="Views\AdminProductTrend\Index.cshtml" />
+    <Content Include="Views\AdminProductTrend\_ViewStart.cshtml" />
+    <Content Include="Views\SellerProductInTrend\Index.cshtml" />
+    <Content Include="Views\SellerProductInTrend\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -259,6 +277,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908151538050_Intial1.resx">
       <DependentUpon>201908151538050_Intial1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908160824173_trend.resx">
+      <DependentUpon>201908160824173_trend.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908160915409_trendRequest.resx">
+      <DependentUpon>201908160915409_trendRequest.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

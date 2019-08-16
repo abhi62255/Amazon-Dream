@@ -1,13 +1,15 @@
 ﻿@model IEnumerable<Amazon.Models.Product>
 
 @{
-    ViewBag.Title = "PendingProductRequest";
+    ViewBag.Title = "Index";
 }
-<hr />
-<h2>Pending Product Request</h2>
-
+<br />
+<h2>TREND</h2>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Seller.SellerName)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.ProductName)
         </th>
@@ -26,6 +28,9 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.Seller.SellerName)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.ProductName)
         </td>
         <td>
@@ -37,10 +42,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.ProductDiscount)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "EditPR", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "DeletePR", new { id=item.ID })
-        </td>
+        
     </tr>
 }
 
