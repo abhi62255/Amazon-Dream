@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Amazon.Models.Seller>
+
+@{
+    ViewBag.Title = "Index";
+}
+<hr />
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SellerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SEmail)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SellerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SEmail)
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

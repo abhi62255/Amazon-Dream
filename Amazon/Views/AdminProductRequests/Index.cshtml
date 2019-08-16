@@ -19,7 +19,7 @@
         </td>
         <td>
             @Html.ActionLink("Details", "Details", new { id = item.Product_ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ID ,Product_ID= item.Product_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { Product_ID= item.Product_ID }) |
             @Html.ActionLink("Accept", "Accept", new { id = item.ID })
 
         </td>

@@ -88,26 +88,10 @@ namespace Amazon.Controllers
         // POST: AdminProductRequests/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id ,int Product_ID)
+        public ActionResult DeleteConfirmed(int Product_ID)
         {
-            ProductRequest productRequest = db.ProductRequest.Find(id);
-            var modelP = db.Product.Where(p => p.ID == Product_ID).FirstOrDefault();
-            var modelD = db.ProductDescrption.Where(p => p.Product_ID == Product_ID).FirstOrDefault();
-            db.Product.Remove(modelP);
-            db.ProductDescrption.Remove(modelD);
-
-            while(true)
-            {
-                var modelPP = db.ProductPicture.Where(p => p.Product_ID == Product_ID).FirstOrDefault();
-                if(modelPP != null)
-                {
-                    db.ProductPicture.Remove(modelPP);
-                }
-                break;
-            }
-
-
-            db.ProductRequest.Remove(productRequest);
+            Product product = db.Product.Find(Product_ID);
+            db.Product.Remove(product);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

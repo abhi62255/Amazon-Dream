@@ -129,6 +129,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminHomeController.cs" />
     <Compile Include="Controllers\AdminProductRequestsController.cs" />
+    <Compile Include="Controllers\AdminProductViewController.cs" />
+    <Compile Include="Controllers\AdminSellerViewController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegisterLoginController.cs" />
     <Compile Include="Controllers\SellerHomeController.cs" />
@@ -206,7 +208,6 @@
     <Content Include="Views\AdminHome\Index.cshtml" />
     <Content Include="Views\AdminHome\_ViewStart.cshtml" />
     <Content Include="Views\SellerHome\_ViewStart.cshtml" />
-    <Content Include="Views\AdminSellerRequests\Create.cshtml" />
     <Content Include="Views\AdminSellerRequests\Accept.cshtml" />
     <Content Include="Views\AdminSellerRequests\Details.cshtml" />
     <Content Include="Views\AdminSellerRequests\Index.cshtml" />
@@ -229,6 +230,12 @@
     <Content Include="Views\SellerProductView\PendingProductRequest.cshtml" />
     <Content Include="Views\SellerProductView\EditPR.cshtml" />
     <Content Include="Views\SellerProductView\DeletePR.cshtml" />
+    <Content Include="Views\AdminProductView\Delete.cshtml" />
+    <Content Include="Views\AdminProductView\Index.cshtml" />
+    <Content Include="Views\AdminProductView\_ViewStart.cshtml" />
+    <Content Include="Views\AdminSellerView\Delete.cshtml" />
+    <Content Include="Views\AdminSellerView\Index.cshtml" />
+    <Content Include="Views\AdminSellerView\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
