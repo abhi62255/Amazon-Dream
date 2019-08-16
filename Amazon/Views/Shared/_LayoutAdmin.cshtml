@@ -26,12 +26,11 @@
                     <li>@Html.ActionLink("View Seller", "Index", "AdminSellerView")</li>
                     <li>@Html.ActionLink("View Products", "Index", "AdminProductView")</li>
                     <li>@Html.ActionLink("Product Trend", "Index", "AdminProductTrend")</li>
-
-
+                    <li>@Html.ActionLink("Trend Request", "Index", "AdminTrendRequest")</li>
 
 
                 </ul>
-                
+
                 <ul class="nav navbar-right">
                     @if (User.Identity.Name == "")
                     {
@@ -54,7 +53,6 @@
             <p>&copy; @DateTime.Now.Year - My AMAZON Dream</p>
         </footer>
     </div>
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

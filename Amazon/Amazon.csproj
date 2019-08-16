@@ -132,12 +132,14 @@
     <Compile Include="Controllers\AdminProductTrendController.cs" />
     <Compile Include="Controllers\AdminProductViewController.cs" />
     <Compile Include="Controllers\AdminSellerViewController.cs" />
+    <Compile Include="Controllers\AdminTrendRequestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegisterLoginController.cs" />
     <Compile Include="Controllers\SellerHomeController.cs" />
     <Compile Include="Controllers\AdminSellerRequestsController.cs" />
     <Compile Include="Controllers\SellerProductInTrendController.cs" />
     <Compile Include="Controllers\SellerProductViewController.cs" />
+    <Compile Include="Controllers\SellerTrendRequestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -206,16 +208,12 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\RegisterLogin\Register.cshtml" />
     <Content Include="Views\RegisterLogin\LogIn.cshtml" />
     <Content Include="Views\RegisterLogin\SellerRegistration.cshtml" />
-    <Content Include="Views\Shared\_LayoutSeller.cshtml" />
-    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\SellerHome\Index.cshtml" />
     <Content Include="Views\AdminHome\Index.cshtml" />
     <Content Include="Views\AdminHome\_ViewStart.cshtml" />
@@ -254,6 +252,18 @@
     <Content Include="Views\AdminProductTrend\_ViewStart.cshtml" />
     <Content Include="Views\SellerProductInTrend\Index.cshtml" />
     <Content Include="Views\SellerProductInTrend\_ViewStart.cshtml" />
+    <Content Include="Views\SellerTrendRequest\Create.cshtml" />
+    <Content Include="Views\SellerTrendRequest\Delete.cshtml" />
+    <Content Include="Views\SellerTrendRequest\Index.cshtml" />
+    <Content Include="Views\AdminTrendRequest\Delete.cshtml" />
+    <Content Include="Views\AdminTrendRequest\Index.cshtml" />
+    <Content Include="Views\AdminTrendRequest\_ViewStart.cshtml" />
+    <Content Include="Views\AdminTrendRequest\Accept.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LayoutSeller.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\SellerTrendRequest\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

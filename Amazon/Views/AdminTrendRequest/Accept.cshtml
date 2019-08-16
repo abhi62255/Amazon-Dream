@@ -1,0 +1,39 @@
+﻿@model Amazon.Models.TrendRequest
+
+@{
+    ViewBag.Title = "Delete";
+}
+<br />
+<h2>ACCEPT</h2>
+
+<h3>Are you sure you want to accept this?</h3>
+<div>
+    <h4>Trend Request</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.ProductName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.ProductName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.Seller.SellerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.Seller.SellerName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Accept" class="btn btn-default" /> |
+            <button class="btn btn-default">@Html.ActionLink("Back to List", "Index")</button>
+        </div>
+    }
+</div>
