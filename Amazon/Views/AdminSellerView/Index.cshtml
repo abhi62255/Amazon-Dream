@@ -4,7 +4,11 @@
     ViewBag.Title = "Index";
 }
 <hr />
-<h2>Index</h2>
+<form method="get">
+    <input type="search" name="searchTerm" placeholder="Company Name" />
+    <input type="submit" name="Search" />
+</form>
+<br />
 
 <table class="table">
     <tr>
@@ -17,18 +21,19 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.SellerName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SEmail)
-        </td>
-        <td>
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SellerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SEmail)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
 
 </table>

@@ -17,9 +17,9 @@ namespace Amazon.Controllers
         private AKARTDBContext db = new AKARTDBContext();
 
         // GET: AdminSellerView
-        public ActionResult Index()
+        public ActionResult Index(string searchTerm = null)
         {
-            return View(db.Seller.ToList());
+            return View(db.Seller.Where(p => searchTerm == null || p.SellerName.StartsWith(searchTerm)).ToList());
         }
 
 

@@ -17,9 +17,10 @@ namespace Amazon.Controllers
         private AKARTDBContext db = new AKARTDBContext();
 
         // GET: AdminProductView
-        public ActionResult Index()
+        public ActionResult Index(string searchTerm = null)
         {
-            var product = db.Product.Include(p => p.Seller).ToList();
+            var product = db.Product.Where(p => searchTerm == null || p.ProductName.StartsWith(searchTerm))
+                .Include(p => p.Seller).ToList();
             var modelPR = db.ProductRequest.Select(p => p.Product).ToList();
 
             foreach(var pro in modelPR)
