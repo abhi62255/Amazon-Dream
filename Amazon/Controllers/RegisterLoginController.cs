@@ -69,7 +69,7 @@ namespace Amazon.Controllers
 
                     if (user != null)
                     {
-                        FormsAuthentication.SetAuthCookie(user.Name, false);
+                        FormsAuthentication.SetAuthCookie("CUSTOMER", false);
                         Session["CustomerID"] = user.ID;
                         Session["Identity"] = "CUSTOMER";
                         return RedirectToAction("Index", "Home");
@@ -88,8 +88,8 @@ namespace Amazon.Controllers
                     var value = _db.SellerRequest.Where(s => s.Seller_ID == id).FirstOrDefault();
                     if (value != null)
                     {
-
-                        return Content("Your profile is still not verified");
+                        ViewBag.message = "Your profile is still not verified";
+                        return View();
                     }
                     FormsAuthentication.SetAuthCookie("SELLER", false);
                     return RedirectToAction("Index", "SellerHome");
@@ -98,7 +98,7 @@ namespace Amazon.Controllers
             else
             {
                 FormsAuthentication.SetAuthCookie("ADMIN", false);
-                Session["SellerID"] = admin.ID;
+                Session["AdminID"] = admin.ID;
                 Session["Identity"] = "ADMIN";
                 return RedirectToAction("Index", "AdminHome");
             }

@@ -144,31 +144,33 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Hashing.cs" />
-    <Compile Include="Migrations\201908151536400_Intial.cs" />
-    <Compile Include="Migrations\201908151536400_Intial.Designer.cs">
-      <DependentUpon>201908151536400_Intial.cs</DependentUpon>
+    <Compile Include="Migrations\201908170856200_Intial.cs" />
+    <Compile Include="Migrations\201908170856200_Intial.Designer.cs">
+      <DependentUpon>201908170856200_Intial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201908151538050_Intial1.cs" />
-    <Compile Include="Migrations\201908151538050_Intial1.Designer.cs">
-      <DependentUpon>201908151538050_Intial1.cs</DependentUpon>
+    <Compile Include="Migrations\201908171019094_IntialView.cs" />
+    <Compile Include="Migrations\201908171019094_IntialView.Designer.cs">
+      <DependentUpon>201908171019094_IntialView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201908160824173_trend.cs" />
-    <Compile Include="Migrations\201908160824173_trend.Designer.cs">
-      <DependentUpon>201908160824173_trend.cs</DependentUpon>
+    <Compile Include="Migrations\201908171046585_Kart.cs" />
+    <Compile Include="Migrations\201908171046585_Kart.Designer.cs">
+      <DependentUpon>201908171046585_Kart.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201908160915409_trendRequest.cs" />
-    <Compile Include="Migrations\201908160915409_trendRequest.Designer.cs">
-      <DependentUpon>201908160915409_trendRequest.cs</DependentUpon>
+    <Compile Include="Migrations\201908171050325_Kart1.cs" />
+    <Compile Include="Migrations\201908171050325_Kart1.Designer.cs">
+      <DependentUpon>201908171050325_Kart1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Kart.cs" />
     <Compile Include="Models\Password.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductAndDescription.cs" />
     <Compile Include="Models\ProductDescrption.cs" />
     <Compile Include="Models\ProductPicture.cs" />
+    <Compile Include="Models\ProductPictureDescrption.cs" />
     <Compile Include="Models\ProductRequest.cs" />
     <Compile Include="Models\Seller.cs" />
     <Compile Include="Models\SellerAddress.cs" />
@@ -291,6 +293,7 @@
     <Content Include="Views\Shared\_LayoutSeller.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\SellerTrendRequest\_ViewStart.cshtml" />
+    <Content Include="Views\Home\ProductDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -309,17 +312,17 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201908151536400_Intial.resx">
-      <DependentUpon>201908151536400_Intial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908170856200_Intial.resx">
+      <DependentUpon>201908170856200_Intial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908151538050_Intial1.resx">
-      <DependentUpon>201908151538050_Intial1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908171019094_IntialView.resx">
+      <DependentUpon>201908171019094_IntialView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908160824173_trend.resx">
-      <DependentUpon>201908160824173_trend.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908171046585_Kart.resx">
+      <DependentUpon>201908171046585_Kart.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908160915409_trendRequest.resx">
-      <DependentUpon>201908160915409_trendRequest.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908171050325_Kart1.resx">
+      <DependentUpon>201908171050325_Kart1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

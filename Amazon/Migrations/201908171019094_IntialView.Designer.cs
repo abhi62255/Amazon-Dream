@@ -7,13 +7,13 @@ namespace Amazon.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Intial1 : IMigrationMetadata
+    public sealed partial class IntialView : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Intial1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(IntialView));
         
         string IMigrationMetadata.Id
         {
-            get { return "201908151538050_Intial1"; }
+            get { return "201908171019094_IntialView"; }
         }
         
         string IMigrationMetadata.Source

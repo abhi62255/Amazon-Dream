@@ -11,6 +11,7 @@ using Amazon.Models;
 
 namespace Amazon.Controllers
 {
+    [Authorize(Users = "SELLER")]
     public class SellerProductInTrendController : Controller
     {
         private AKARTDBContext db = new AKARTDBContext();

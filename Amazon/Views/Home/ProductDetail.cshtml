@@ -1,0 +1,114 @@
+﻿@model Amazon.Models.ProductPictureDescrption
+
+@{
+    ViewBag.Title = "ProductDetail";
+    var ActualPrice = Model.ProductPrice - (Model.ProductPrice*Model.ProductDiscount)/100;
+
+
+
+}
+<br />
+<h2>ProductDetail</h2>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+
+        <dt>
+            <p>Actual Price</p>
+        </dt>
+
+        <dd>
+            @ActualPrice
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductDiscount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductDiscount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductSubCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductSubCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductBrand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductBrand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductGenderType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductGenderType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PicturePath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PicturePath)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <h5 style="color:green">@ViewBag.Message</h5>
+
+</div>
+<p>
+    @Html.ActionLink("Add To Kart", "AddToKart", new { Product_ID = Model.ID }) |
+    @Html.ActionLink("Go To Kart", "GoToKart") |
+
+    @Html.ActionLink("Back", "Index")
+</p>

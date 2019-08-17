@@ -46,11 +46,8 @@ namespace Amazon.Migrations
                         SellerName = c.String(nullable: false, maxLength: 200),
                         SEmail = c.String(nullable: false, maxLength: 100),
                         Password = c.String(nullable: false, maxLength: 50),
-                        Seller_ID = c.Int(),
                     })
-                .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.SELLER", t => t.Seller_ID)
-                .Index(t => t.Seller_ID);
+                .PrimaryKey(t => t.ID);
             
             CreateTable(
                 "dbo.ADMIN",
@@ -119,38 +116,28 @@ namespace Amazon.Migrations
                 .Index(t => t.Product_ID);
             
             CreateTable(
-                "dbo.ProductAndDescriptions",
-                c => new
-                    {
-                        ID = c.Long(nullable: false, identity: true),
-                        ProductName = c.String(nullable: false, maxLength: 200),
-                        ProductPrice = c.Long(nullable: false),
-                        ProductQuantity = c.Int(nullable: false),
-                        ProductDiscount = c.Int(nullable: false),
-                        ProductCategory = c.String(nullable: false, maxLength: 100),
-                        ProductSubCategory = c.String(nullable: false, maxLength: 100),
-                        ProductBrand = c.String(nullable: false, maxLength: 100),
-                        ProductGenderType = c.String(nullable: false),
-                        ProductDescription = c.String(nullable: false, maxLength: 100),
-                    })
-                .PrimaryKey(t => t.ID);
-            
-            CreateTable(
-                "dbo.SellerAddresses",
+                "dbo.TREND",
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
-                        SellerName = c.String(nullable: false, maxLength: 200),
-                        SEmail = c.String(nullable: false, maxLength: 100),
-                        Password = c.String(nullable: false, maxLength: 50),
-                        AddressLine1 = c.String(nullable: false, maxLength: 500),
-                        City = c.String(nullable: false),
-                        State = c.String(nullable: false),
-                        PostalCode = c.Int(nullable: false),
-                        AddressType = c.String(),
+                        Product_ID = c.Long(nullable: false),
                     })
-                .PrimaryKey(t => t.ID);
+                .PrimaryKey(t => t.ID)
+                .ForeignKey("dbo.PRODUCT", t => t.Product_ID, cascadeDelete: true)
+                .Index(t => t.Product_ID);
             
+            CreateTable(
+                "dbo.TRENDREQUEST",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        Product_ID = c.Long(nullable: false),
+                    })
+                .PrimaryKey(t => t.ID)
+                .ForeignKey("dbo.PRODUCT", t => t.Product_ID, cascadeDelete: true)
+                .Index(t => t.Product_ID);
+            
+
             CreateTable(
                 "dbo.SELLERREQUEST",
                 c => new
@@ -167,24 +154,28 @@ namespace Amazon.Migrations
         public override void Down()
         {
             DropForeignKey("dbo.SELLERREQUEST", "Seller_ID", "dbo.SELLER");
+            DropForeignKey("dbo.TRENDREQUEST", "Product_ID", "dbo.PRODUCT");
+            DropForeignKey("dbo.TREND", "Product_ID", "dbo.PRODUCT");
             DropForeignKey("dbo.PRODUCT", "Seller_ID", "dbo.SELLER");
             DropForeignKey("dbo.PRODUCTREQUEST", "Product_ID", "dbo.PRODUCT");
             DropForeignKey("dbo.PRODUCTPICTURE", "Product_ID", "dbo.PRODUCT");
             DropForeignKey("dbo.PRODUCTDESCRPTION", "Product_ID", "dbo.PRODUCT");
             DropForeignKey("dbo.ADDRESS", "Seller_ID", "dbo.SELLER");
-            DropForeignKey("dbo.SELLER", "Seller_ID", "dbo.SELLER");
             DropForeignKey("dbo.ADDRESS", "Customer_ID", "dbo.CUSTOMER");
             DropIndex("dbo.SELLERREQUEST", new[] { "Seller_ID" });
+            DropIndex("dbo.TRENDREQUEST", new[] { "Product_ID" });
+            DropIndex("dbo.TREND", new[] { "Product_ID" });
             DropIndex("dbo.PRODUCTREQUEST", new[] { "Product_ID" });
             DropIndex("dbo.PRODUCTPICTURE", new[] { "Product_ID" });
             DropIndex("dbo.PRODUCTDESCRPTION", new[] { "Product_ID" });
             DropIndex("dbo.PRODUCT", new[] { "Seller_ID" });
-            DropIndex("dbo.SELLER", new[] { "Seller_ID" });
             DropIndex("dbo.ADDRESS", new[] { "Customer_ID" });
             DropIndex("dbo.ADDRESS", new[] { "Seller_ID" });
             DropTable("dbo.SELLERREQUEST");
             DropTable("dbo.SellerAddresses");
             DropTable("dbo.ProductAndDescriptions");
+            DropTable("dbo.TRENDREQUEST");
+            DropTable("dbo.TREND");
             DropTable("dbo.PRODUCTREQUEST");
             DropTable("dbo.PRODUCTPICTURE");
             DropTable("dbo.PRODUCTDESCRPTION");

@@ -21,6 +21,8 @@ namespace Amazon
         public virtual DbSet<ProductRequest> ProductRequest { get; set; }
         public virtual DbSet<Trend> Trend { get; set; }
         public virtual DbSet<TrendRequest> TrendRequest { get; set; }
+        public virtual DbSet<Kart> Kart { get; set; }
+
 
 
 
@@ -35,5 +37,7 @@ namespace Amazon
         [NotMapped]
         public System.Data.Entity.DbSet<Amazon.Models.ProductAndDescription> ProductAndDescription { get; set; }
 
+        [NotMapped]
+        public System.Data.Entity.DbSet<Amazon.Models.ProductPictureDescrption> ProductPictureDescrptions { get; set; }
     }
 }

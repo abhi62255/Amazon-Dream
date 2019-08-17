@@ -7,13 +7,13 @@ namespace Amazon.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class trend : IMigrationMetadata
+    public sealed partial class Kart : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(trend));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Kart));
         
         string IMigrationMetadata.Id
         {
-            get { return "201908160824173_trend"; }
+            get { return "201908171046585_Kart"; }
         }
         
         string IMigrationMetadata.Source

@@ -1,6 +1,58 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿@model IEnumerable<Amazon.Models.Product>
 
-<
-        <h2>Getting started</h2>
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<h2>Welcome You To Amazon Dream</h2>
+<hr />
+<form method="get">
+    <input type="search" name="searchTerm" placeholder="Product Name" />
+    <input type="submit" name="Search" />
+</form>
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Seller.SellerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductQuantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductDiscount)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Seller.SellerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductQuantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductDiscount)
+            </td>
+            <td>
+                | @Html.ActionLink("Product Detail", "ProductDetail", new { Product_ID = item.ID }) |
+            </td>
+        </tr>
+    }
+
+</table>
