@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Amazon.Models.Kart>
+
+@{
+    ViewBag.Title = "GoToKart";
+    long TotalPrice = 0;
+}
+<br />
+<h2>Kart</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.ProductPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.ProductName)
+            </td>
+            <td>
+                @{
+                    var ActualPrice = item.Product.ProductPrice - (item.Product.ProductPrice * item.Product.ProductDiscount) / 100;
+                    ActualPrice *= item.Quantity;
+                    TotalPrice += Convert.ToInt64(ActualPrice);
+
+                }
+                @ActualPrice
+            </td>
+            <td>
+                <button class="btn btn-default"> @Html.ActionLink("-", "Subtract", new { id = item.ID }) </button>
+                @Html.DisplayFor(modelItem => item.Quantity)
+                <button class="btn btn-default"> @Html.ActionLink("+", "Add", new { id = item.ID }) </button>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div>
+    Total Amount : @TotalPrice
+
+</div>

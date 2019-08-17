@@ -84,7 +84,31 @@ namespace Amazon.Controllers
 
         public ActionResult GoToKart()
         {
-            return Content("Inkart");
+            var id = Convert.ToInt32(Session["CustomerID"]);
+            var modelK = _db.Kart.Where(k => k.Customer_ID == id).ToList();
+
+            return View(modelK);
+        }
+        public ActionResult Add(int id)
+        {
+            var model = _db.Kart.Where(k => k.ID == id).FirstOrDefault();
+            model.Quantity += 1;
+            _db.Entry(model).State = EntityState.Modified;
+            _db.SaveChanges();
+            return RedirectToAction("GoToKart");
+
+        }
+        public ActionResult Subtract(int id)
+        {
+            var model = _db.Kart.Where(k => k.ID == id).FirstOrDefault();
+            if(model.Quantity != 0)
+            {
+                model.Quantity -= 1;
+                _db.Entry(model).State = EntityState.Modified;
+                _db.SaveChanges();
+            }
+            
+            return RedirectToAction("GoToKart");
         }
 
 
