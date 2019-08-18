@@ -160,11 +160,24 @@
     <Compile Include="Migrations\201908171050325_Kart1.Designer.cs">
       <DependentUpon>201908171050325_Kart1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908180855129_orderplaced.cs" />
+    <Compile Include="Migrations\201908180855129_orderplaced.Designer.cs">
+      <DependentUpon>201908180855129_orderplaced.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908180859587_orderplaced1.cs" />
+    <Compile Include="Migrations\201908180859587_orderplaced1.Designer.cs">
+      <DependentUpon>201908180859587_orderplaced1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908180916304_orderplaced2.cs" />
+    <Compile Include="Migrations\201908180916304_orderplaced2.Designer.cs">
+      <DependentUpon>201908180916304_orderplaced2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Kart.cs" />
+    <Compile Include="Models\OrderPlaced.cs" />
     <Compile Include="Models\Password.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductAndDescription.cs" />
@@ -328,6 +341,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908171050325_Kart1.resx">
       <DependentUpon>201908171050325_Kart1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908180855129_orderplaced.resx">
+      <DependentUpon>201908180855129_orderplaced.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908180859587_orderplaced1.resx">
+      <DependentUpon>201908180859587_orderplaced1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908180916304_orderplaced2.resx">
+      <DependentUpon>201908180916304_orderplaced2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

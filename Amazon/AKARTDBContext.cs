@@ -22,6 +22,8 @@ namespace Amazon
         public virtual DbSet<Trend> Trend { get; set; }
         public virtual DbSet<TrendRequest> TrendRequest { get; set; }
         public virtual DbSet<Kart> Kart { get; set; }
+        public virtual DbSet<OrderPlaced> OrderPlaced { get; set; }
+
 
 
 

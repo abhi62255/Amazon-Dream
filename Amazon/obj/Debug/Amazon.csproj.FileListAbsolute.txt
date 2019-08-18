@@ -83,3 +83,6 @@ D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.csproj.GenerateRe
 D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.Migrations.IntialView.resources
 D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.Migrations.Kart.resources
 D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.Migrations.Kart1.resources
+D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.Migrations.orderplaced.resources
+D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.Migrations.orderplaced1.resources
+D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.Migrations.orderplaced2.resources

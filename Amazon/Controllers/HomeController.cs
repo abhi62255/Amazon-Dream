@@ -175,9 +175,34 @@ namespace Amazon.Controllers
         public ActionResult PlaceOrder()
         {
             var id = Convert.ToInt32(Session["CustomerID"]);
+            var Aid = Convert.ToInt32(Session["AddressID"]);
             var modelK = _db.Kart.Where(k => k.Customer_ID == id).ToList();
+            var modelA = _db.Address.Where(a => a.ID == Aid).FirstOrDefault();
 
-            foreach(var item in modelK)
+
+            //ORDERPLACED TABLE 
+            var modelOP = new OrderPlaced();        //populating orderplaed table
+            var orderNumber = _db.OrderPlaced.OrderByDescending(o => o.OrderNumber).Select(o => o.OrderNumber).FirstOrDefault();
+            if (orderNumber == 0)
+            {
+                orderNumber = 999;
+            }
+            orderNumber += 1;
+
+            modelOP.OrderNumber = orderNumber;
+
+            modelOP.Address = "Address Line: " + modelA.AddressLine1 + ", City: " + modelA.City + ", State: " + modelA.State +
+                ", PostalCode: " + modelA.PostalCode + ", Address Type: " + modelA.AddressType;
+
+            modelOP.DateTime = DateTime.Now;
+            modelOP.PaymentType = Session["PaymentType"].ToString();
+            modelOP.Status = "Placed will be with you soon";
+            modelOP.Customer_ID = id;
+
+            
+
+
+            foreach (var item in modelK)     //checking availability a
             {
                 var modelP = _db.Product.Where(p => p.ID == item.Product_ID).FirstOrDefault();
                 if(modelP.ProductQuantity < item.Quantity)
@@ -185,10 +210,19 @@ namespace Amazon.Controllers
                     return Content("Products Out of Stock Try again later : " + modelP.ProductName);
                 }
                 modelP.ProductQuantity -= item.Quantity;
+
+                modelOP.Quantity = item.Quantity;
+                var ActualPrice = item.Product.ProductPrice - (item.Product.ProductPrice * item.Product.ProductDiscount) / 100;
+                modelOP.Amount = item.Quantity * ActualPrice;
+                modelOP.Product_ID = item.Product_ID;
+
+                _db.OrderPlaced.Add(modelOP);
+                _db.SaveChanges();
                 _db.Entry(modelP).State = EntityState.Modified;
                 _db.Kart.Remove(item);      //remove items from kart after placing order
             }
             _db.SaveChanges();
+
 
             return Content("OrderPlaced");
         }
