@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "AddPayment";
+}
+
+<h2>AddPayment</h2>
+
+
+<hr />
+<form method="post">
+    <input type="radio" name="PaymentType" value="Cash On Delivery" checked> Cash On Delivery<br>
+    <input type="radio" name="PaymentType" value="Credit Card"> Credit Card<br>
+    <input type="radio" name="PaymentType" value="Debit Card"> Debit Card<br />
+    <input type="radio" name="PaymentType" value="BHIM UPI"> BHIM UPI
+
+    <input type="submit" name="Add" />
+</form>
+<br />
+
+<div>
+    @Html.ActionLink("Back", "AddAddress")
+</div>

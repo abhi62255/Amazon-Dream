@@ -81,7 +81,7 @@ namespace Amazon.Controllers
 
             return RedirectToAction("ProductDetail",new { Product_ID = Product_ID , message = "Product Added To Kart" });
         }
-
+        [Authorize]
         public ActionResult GoToKart()
         {
             var id = Convert.ToInt32(Session["CustomerID"]);
@@ -110,13 +110,88 @@ namespace Amazon.Controllers
             
             return RedirectToAction("GoToKart");
         }
+        public ActionResult AddAddress()
+        {
+            var id = Convert.ToInt32(Session["CustomerID"]);
+            var model = _db.Address.Where(a => a.Customer_ID == id).ToList();
 
 
+            return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult NewAddress()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult NewAddress(Address model)
+        {
+            model.Customer_ID = Convert.ToInt32(Session["CustomerID"]);
+            _db.Address.Add(model);
+            _db.SaveChanges();
+
+            return RedirectToAction("AddAddress");
+        }
+
+        public ActionResult DeleteAddress(int id)
+        {
+            var model = _db.Address.Find(id);
+            _db.Address.Remove(model);
+            _db.SaveChanges();
+
+            return RedirectToAction("AddAddress");
+        }
+
+        public ActionResult SelectAddress(int id)
+        {
+            Session["AddressID"] = id;
+
+            return RedirectToAction("AddPayment");
+        }
 
 
+        [HttpGet]
+        public ActionResult AddPayment()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddPayment(string PaymentType)
+        {
+            Session["PaymentType"] = PaymentType;
 
+            return RedirectToAction("VerifyOrder");
+        }
 
+        public ActionResult VerifyOrder()
+        {
+            var id = Convert.ToInt32(Session["CustomerID"]);
+            var modelK = _db.Kart.Where(k => k.Customer_ID == id).ToList();
+            return View(modelK);
+        }
 
+        public ActionResult PlaceOrder()
+        {
+            var id = Convert.ToInt32(Session["CustomerID"]);
+            var modelK = _db.Kart.Where(k => k.Customer_ID == id).ToList();
+
+            foreach(var item in modelK)
+            {
+                var modelP = _db.Product.Where(p => p.ID == item.Product_ID).FirstOrDefault();
+                if(modelP.ProductQuantity < item.Quantity)
+                {
+                    return Content("Products Out of Stock Try again later : " + modelP.ProductName);
+                }
+                modelP.ProductQuantity -= item.Quantity;
+                _db.Entry(modelP).State = EntityState.Modified;
+                _db.Kart.Remove(item);      //remove items from kart after placing order
+            }
+            _db.SaveChanges();
+
+            return Content("OrderPlaced");
+        }
 
 
 

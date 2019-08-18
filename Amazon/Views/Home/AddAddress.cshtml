@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Amazon.Models.Address>
+
+@{
+    ViewBag.Title = "AddAddress";
+}
+<br />
+<h2>AddAddress</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AddressLine1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostalCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AddressType)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AddressLine1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.State)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostalCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AddressType)
+        </td>
+        <td>
+            @Html.ActionLink("Select", "SelectAddress", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "DeleteAddress", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
+<p>
+    @Html.ActionLink("New Address", "NewAddress")
+</p>

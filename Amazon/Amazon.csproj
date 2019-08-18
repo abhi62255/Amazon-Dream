@@ -295,6 +295,10 @@
     <Content Include="Views\SellerTrendRequest\_ViewStart.cshtml" />
     <Content Include="Views\Home\ProductDetail.cshtml" />
     <Content Include="Views\Home\GoToKart.cshtml" />
+    <Content Include="Views\Home\AddAddress.cshtml" />
+    <Content Include="Views\Home\NewAddress.cshtml" />
+    <Content Include="Views\Home\AddPayment.cshtml" />
+    <Content Include="Views\Home\VerifyOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

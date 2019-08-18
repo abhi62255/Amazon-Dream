@@ -1,12 +1,11 @@
 ﻿@model IEnumerable<Amazon.Models.Kart>
 
 @{
-    ViewBag.Title = "GoToKart";
+    ViewBag.Title = "VerifyOrder";
     long TotalPrice = 0;
 }
-<br />
-<h2>Kart</h2>
 
+<h2>VerifyOrder</h2>
 
 <table class="table">
     <tr>
@@ -37,9 +36,7 @@
                 @ActualPrice
             </td>
             <td>
-                <button class="btn btn-default"> @Html.ActionLink("-", "Subtract", new { id = item.ID }) </button>
                 @Html.DisplayFor(modelItem => item.Quantity)
-                <button class="btn btn-default"> @Html.ActionLink("+", "Add", new { id = item.ID }) </button>
             </td>
         </tr>
     }
@@ -51,5 +48,5 @@
 
 </div>
 <p>
-    @Html.ActionLink("Add Address", "AddAddress")
+    @Html.ActionLink("Place Order", "PlaceOrder")
 </p>
