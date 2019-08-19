@@ -23,6 +23,18 @@ namespace Amazon.Controllers
                 modelP.Remove(model);
             }
 
+            //making quantity 0 in kart to relese products to sale
+            var modelK = _db.Kart.ToList();
+            foreach(var kartProduct in modelK)
+            {
+                var timeDifference = DateTime.Now.Subtract(kartProduct.DateTime).TotalMinutes;
+                if(timeDifference >= 120)       //if difference is 2 Hour or more
+                {
+                    kartProduct.Quantity = 0;
+                }
+                _db.Entry(kartProduct).State = EntityState.Modified;
+            }
+            _db.SaveChanges();
 
             return View(modelP);
         }
@@ -72,6 +84,7 @@ namespace Amazon.Controllers
                 model.Product_ID = Product_ID;
                 model.Customer_ID = id;
                 model.Quantity = 1;
+                model.DateTime = DateTime.Now;
                 _db.Kart.Add(model);
             }
 
@@ -89,14 +102,24 @@ namespace Amazon.Controllers
 
             return View(modelK);
         }
-        public ActionResult Add(int id)
+        public ActionResult Add(int id,int Product_ID)
         {
-            var model = _db.Kart.Where(k => k.ID == id).FirstOrDefault();
-            model.Quantity += 1;
-            _db.Entry(model).State = EntityState.Modified;
-            _db.SaveChanges();
-            return RedirectToAction("GoToKart");
+            var modelK = _db.Kart.Where(k => k.Product_ID == Product_ID).ToList();        //to find availability of product
+            var modelP = _db.Product.Where(p => p.ID == Product_ID).FirstOrDefault();
+            var AvailableQuantity = modelP.ProductQuantity;
 
+            foreach (var k in modelK)
+            {
+                AvailableQuantity -= k.Quantity;
+            }
+            if(AvailableQuantity > 0 )
+            {
+                var model = _db.Kart.Where(k => k.ID == id).FirstOrDefault();
+                model.Quantity += 1;
+                _db.Entry(model).State = EntityState.Modified;
+                _db.SaveChanges();
+            }
+            return RedirectToAction("GoToKart");
         }
         public ActionResult Subtract(int id)
         {

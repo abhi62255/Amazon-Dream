@@ -2,7 +2,15 @@
 
 @{
     ViewBag.Title = "ProductDetail";
+    AKARTDBContext _db = new AKARTDBContext();
     var ActualPrice = Model.ProductPrice - (Model.ProductPrice*Model.ProductDiscount)/100;
+    var modelK = _db.Kart.Where(k => k.Product_ID == Model.ID).ToList();
+    var AvailableQuantity = Model.ProductQuantity;
+
+    foreach(var k in modelK)
+    {
+        AvailableQuantity -= k.Quantity;
+    }
 
 
 
@@ -21,7 +29,7 @@
         </dd>
 
         <dt>
-            <p>Actual Price</p>
+            Actual Price
         </dt>
 
         <dd>
@@ -41,7 +49,8 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ProductQuantity)
+            @*@Html.DisplayFor(model => model.ProductQuantity)*@
+            @AvailableQuantity
         </dd>
 
         <dt>
@@ -107,8 +116,17 @@
 
 </div>
 <p>
-    @Html.ActionLink("Add To Kart", "AddToKart", new { Product_ID = Model.ID }) |
-    @Html.ActionLink("Go To Kart", "GoToKart") |
+
+    @if (AvailableQuantity > 0)
+    {
+        @Html.ActionLink("Add To Kart", "AddToKart", new { Product_ID = Model.ID })
+    }
+    else
+    {
+        <P>Product out of Stock</p>
+    }
+
+    |@Html.ActionLink("Go To Kart", "GoToKart") |
 
     @Html.ActionLink("Back", "Index")
 </p>

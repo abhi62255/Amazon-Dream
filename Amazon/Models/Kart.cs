@@ -16,6 +16,9 @@ namespace Amazon.Models
         [Required]
         public int Quantity { get; set; }
 
+        [Required]
+        public DateTime DateTime { get; set; }
+
 
 
         [ForeignKey("Product")]

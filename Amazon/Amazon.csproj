@@ -172,6 +172,10 @@
     <Compile Include="Migrations\201908180916304_orderplaced2.Designer.cs">
       <DependentUpon>201908180916304_orderplaced2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908190920537_kartDate.cs" />
+    <Compile Include="Migrations\201908190920537_kartDate.Designer.cs">
+      <DependentUpon>201908190920537_kartDate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -350,6 +354,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908180916304_orderplaced2.resx">
       <DependentUpon>201908180916304_orderplaced2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908190920537_kartDate.resx">
+      <DependentUpon>201908190920537_kartDate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

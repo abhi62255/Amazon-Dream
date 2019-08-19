@@ -39,7 +39,7 @@
             <td>
                 <button class="btn btn-default"> @Html.ActionLink("-", "Subtract", new { id = item.ID }) </button>
                 @Html.DisplayFor(modelItem => item.Quantity)
-                <button class="btn btn-default"> @Html.ActionLink("+", "Add", new { id = item.ID }) </button>
+                <button class="btn btn-default"> @Html.ActionLink("+", "Add", new { id = item.ID , Product_ID = item.Product_ID }) </button>
             </td>
         </tr>
     }

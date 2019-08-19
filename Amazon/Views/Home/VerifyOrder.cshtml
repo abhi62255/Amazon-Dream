@@ -1,9 +1,16 @@
 ﻿@model IEnumerable<Amazon.Models.Kart>
 
 @{
+    AKARTDBContext _db = new AKARTDBContext();
     ViewBag.Title = "VerifyOrder";
     long TotalPrice = 0;
+    var id = Convert.ToInt32(Session["AddressID"]);
+    var modelA = _db.Address.Where(a => a.ID == id).FirstOrDefault();
+    var address = "Address Line: " + modelA.AddressLine1 + ", City: " + modelA.City + ", State: " + modelA.State +
+                ", PostalCode: " + modelA.PostalCode + ", Address Type: " + modelA.AddressType;
+
 }
+<br />
 
 <h2>VerifyOrder</h2>
 
@@ -45,6 +52,11 @@
 
 <div>
     Total Amount : @TotalPrice
+    
+    <pre>
+        Order Address :
+        @address
+    </pre>
 
 </div>
 <p>
