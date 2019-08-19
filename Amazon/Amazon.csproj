@@ -134,6 +134,7 @@
     <Compile Include="Controllers\AdminSellerViewController.cs" />
     <Compile Include="Controllers\AdminTrendRequestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderHistoryController.cs" />
     <Compile Include="Controllers\RegisterLoginController.cs" />
     <Compile Include="Controllers\SellerHomeController.cs" />
     <Compile Include="Controllers\AdminSellerRequestsController.cs" />
@@ -305,7 +306,6 @@
     <Content Include="Views\AdminTrendRequest\Index.cshtml" />
     <Content Include="Views\AdminTrendRequest\_ViewStart.cshtml" />
     <Content Include="Views\AdminTrendRequest\Accept.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LayoutSeller.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
@@ -316,6 +316,11 @@
     <Content Include="Views\Home\NewAddress.cshtml" />
     <Content Include="Views\Home\AddPayment.cshtml" />
     <Content Include="Views\Home\VerifyOrder.cshtml" />
+    <Content Include="Views\OrderHistory\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\OrderHistory\AdminOrderHistory.cshtml" />
+    <Content Include="Views\OrderHistory\SellerOrderRecived.cshtml" />
+    <Content Include="Views\OrderHistory\UpdateStatus.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
