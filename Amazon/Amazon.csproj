@@ -135,6 +135,7 @@
     <Compile Include="Controllers\AdminTrendRequestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrderHistoryController.cs" />
+    <Compile Include="Controllers\ProductFeedbackController.cs" />
     <Compile Include="Controllers\RegisterLoginController.cs" />
     <Compile Include="Controllers\SellerHomeController.cs" />
     <Compile Include="Controllers\AdminSellerRequestsController.cs" />
@@ -177,10 +178,15 @@
     <Compile Include="Migrations\201908190920537_kartDate.Designer.cs">
       <DependentUpon>201908190920537_kartDate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908201006524_feedback.cs" />
+    <Compile Include="Migrations\201908201006524_feedback.Designer.cs">
+      <DependentUpon>201908201006524_feedback.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Feedback.cs" />
     <Compile Include="Models\Kart.cs" />
     <Compile Include="Models\OrderPlaced.cs" />
     <Compile Include="Models\Password.cs" />
@@ -316,11 +322,16 @@
     <Content Include="Views\Home\NewAddress.cshtml" />
     <Content Include="Views\Home\AddPayment.cshtml" />
     <Content Include="Views\Home\VerifyOrder.cshtml" />
-    <Content Include="Views\OrderHistory\Index.cshtml" />
+    <Content Include="Views\OrderHistory\UserOrderHistory.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\OrderHistory\AdminOrderHistory.cshtml" />
     <Content Include="Views\OrderHistory\SellerOrderRecived.cshtml" />
     <Content Include="Views\OrderHistory\UpdateStatus.cshtml" />
+    <Content Include="Views\ProductFeedback\Create.cshtml" />
+    <Content Include="Views\ProductFeedback\Delete.cshtml" />
+    <Content Include="Views\ProductFeedback\Details.cshtml" />
+    <Content Include="Views\ProductFeedback\Edit.cshtml" />
+    <Content Include="Views\ProductFeedback\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -362,6 +373,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908190920537_kartDate.resx">
       <DependentUpon>201908190920537_kartDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908201006524_feedback.resx">
+      <DependentUpon>201908201006524_feedback.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

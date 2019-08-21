@@ -40,6 +40,8 @@ namespace Amazon.Models
         public virtual ICollection<TrendRequest> TrendRequest { get; set; }
         public virtual ICollection<Kart> Kart { get; set; }
         public virtual ICollection<OrderPlaced> OrderPlaced { get; set; }
+        public virtual ICollection<Feedback> Feedback { get; set; }
+
 
 
 

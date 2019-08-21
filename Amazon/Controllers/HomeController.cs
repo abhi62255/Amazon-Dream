@@ -63,7 +63,17 @@ namespace Amazon.Controllers
             ViewBag.Message = message;
             return View(model);
         }
-
+        [HttpPost]
+        public ActionResult ProductDetail(int Product_ID,int Rating, string Review)
+        {
+            var id = Convert.ToInt32(Session["CustomerID"]);
+            var model = new Feedback();
+            model.Rating = Rating;
+            model.Review = Review;
+            model.Customer_ID = id;
+            model.Product_ID = Product_ID;
+            return RedirectToAction("Create", "ProductFeedback",model);
+        }
         [Authorize(Users = "CUSTOMER")]
 
         public ActionResult AddToKart(long Product_ID)
@@ -131,6 +141,14 @@ namespace Amazon.Controllers
                 _db.SaveChanges();
             }
             
+            return RedirectToAction("GoToKart");
+        }
+        public ActionResult Remove(int id)
+        {
+            var model = _db.Kart.Where(k => k.ID == id).FirstOrDefault();
+            _db.Kart.Remove(model);
+            _db.SaveChanges();
+
             return RedirectToAction("GoToKart");
         }
         public ActionResult AddAddress()

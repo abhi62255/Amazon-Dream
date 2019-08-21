@@ -12,8 +12,8 @@
         AvailableQuantity -= k.Quantity;
     }
 
-
-
+    // to show reviews of product
+    var modelF = _db.Feedback.Where(f => f.Product_ID == Model.ID).Take(10).ToList();
 }
 <br />
 <h2>ProductDetail</h2>
@@ -122,7 +122,7 @@
     <h5 style="color:green">@ViewBag.Message</h5>
 
 </div>
-<p>
+<div>
 
     @if (AvailableQuantity > 0)
     {
@@ -136,4 +136,29 @@
     |@Html.ActionLink("Go To Kart", "GoToKart") |
 
     @Html.ActionLink("Back", "Index")
-</p>
+</div>
+<form method="post">
+    <input type="number" name="Rating" />
+    <input type="text" name="Review" />
+    <input type="submit" value="Post" />
+</form>
+
+<table class="table">
+    @foreach (var item in modelF)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Review)
+            </td>
+        </tr>
+    }
+
+</table>
+
+
