@@ -41,6 +41,36 @@ namespace Amazon.Controllers
 
         public ActionResult ProductDetail(int? Product_ID, string message)
         {
+            //adding to previsit if customer is login
+            if(Session["CustomerID"] != null)
+            {
+                var id = Convert.ToInt32(Session["CustomerID"]);
+
+                var modelPVV = _db.PreVisit.Where(o => o.Product_ID == Product_ID && o.Customer_ID == id).FirstOrDefault();
+                if(modelPVV != null)
+                {
+                    modelPVV.Date = DateTime.Now;
+                    _db.Entry(modelPVV).State = EntityState.Modified;
+
+                }
+                else
+                {
+                    var modelPV = new PreVisit();
+                    modelPV.Date = DateTime.Now;
+                    modelPV.Product_ID = Convert.ToInt64(Product_ID);
+                    modelPV.Customer_ID = id;
+                    _db.PreVisit.Add(modelPV);
+                }
+                
+                _db.SaveChanges();
+
+            }
+
+
+
+
+
+
             var modelP = _db.Product.Where(p => p.ID == Product_ID).FirstOrDefault();
             var modelPD = _db.ProductDescrption.Where(p => p.ID == Product_ID).FirstOrDefault();
             var modelPP = _db.ProductPicture.Where(p => p.ID == Product_ID).FirstOrDefault();

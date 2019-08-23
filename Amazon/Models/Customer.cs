@@ -43,6 +43,8 @@ namespace Amazon.Models
         public virtual ICollection<OrderPlaced> OrderPlaced { get; set; }
         public virtual ICollection<Feedback> Feedback { get; set; }
         public virtual ICollection<Wishlist> Wishlist { get; set; }
+        public virtual ICollection<PreVisit> PreVisit { get; set; }
+
 
 
 

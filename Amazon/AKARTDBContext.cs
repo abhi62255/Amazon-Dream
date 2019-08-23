@@ -25,6 +25,8 @@ namespace Amazon
         public virtual DbSet<OrderPlaced> OrderPlaced { get; set; }
         public virtual DbSet<Feedback> Feedback { get; set; }
         public virtual DbSet<Wishlist> Wishlist { get; set; }
+        public virtual DbSet<PreVisit> PreVisit { get; set; }
+
 
 
 

@@ -135,6 +135,7 @@
     <Compile Include="Controllers\AdminTrendRequestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrderHistoryController.cs" />
+    <Compile Include="Controllers\PreVisitController.cs" />
     <Compile Include="Controllers\ProductFeedbackController.cs" />
     <Compile Include="Controllers\RegisterLoginController.cs" />
     <Compile Include="Controllers\SellerHomeController.cs" />
@@ -191,6 +192,14 @@
     <Compile Include="Migrations\201908230818032_wishlist1.Designer.cs">
       <DependentUpon>201908230818032_wishlist1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908231007012_previsit.cs" />
+    <Compile Include="Migrations\201908231007012_previsit.Designer.cs">
+      <DependentUpon>201908231007012_previsit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908231035087_previsit1.cs" />
+    <Compile Include="Migrations\201908231035087_previsit1.Designer.cs">
+      <DependentUpon>201908231035087_previsit1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -199,6 +208,7 @@
     <Compile Include="Models\Kart.cs" />
     <Compile Include="Models\OrderPlaced.cs" />
     <Compile Include="Models\Password.cs" />
+    <Compile Include="Models\PreVisit.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductAndDescription.cs" />
     <Compile Include="Models\ProductDescrption.cs" />
@@ -347,6 +357,7 @@
     <Content Include="Views\Wishlist\Details.cshtml" />
     <Content Include="Views\Wishlist\Edit.cshtml" />
     <Content Include="Views\Wishlist\Index.cshtml" />
+    <Content Include="Views\PreVisit\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -397,6 +408,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908230818032_wishlist1.resx">
       <DependentUpon>201908230818032_wishlist1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908231007012_previsit.resx">
+      <DependentUpon>201908231007012_previsit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908231035087_previsit1.resx">
+      <DependentUpon>201908231035087_previsit1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
