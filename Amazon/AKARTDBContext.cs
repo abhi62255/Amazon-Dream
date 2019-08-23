@@ -24,6 +24,8 @@ namespace Amazon
         public virtual DbSet<Kart> Kart { get; set; }
         public virtual DbSet<OrderPlaced> OrderPlaced { get; set; }
         public virtual DbSet<Feedback> Feedback { get; set; }
+        public virtual DbSet<Wishlist> Wishlist { get; set; }
+
 
 
 

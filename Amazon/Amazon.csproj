@@ -142,6 +142,7 @@
     <Compile Include="Controllers\SellerProductInTrendController.cs" />
     <Compile Include="Controllers\SellerProductViewController.cs" />
     <Compile Include="Controllers\SellerTrendRequestController.cs" />
+    <Compile Include="Controllers\WishlistController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -182,6 +183,14 @@
     <Compile Include="Migrations\201908201006524_feedback.Designer.cs">
       <DependentUpon>201908201006524_feedback.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908230813038_wishlist.cs" />
+    <Compile Include="Migrations\201908230813038_wishlist.Designer.cs">
+      <DependentUpon>201908230813038_wishlist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908230818032_wishlist1.cs" />
+    <Compile Include="Migrations\201908230818032_wishlist1.Designer.cs">
+      <DependentUpon>201908230818032_wishlist1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -201,6 +210,7 @@
     <Compile Include="Models\SellerRequest.cs" />
     <Compile Include="Models\Trend.cs" />
     <Compile Include="Models\TrendRequest.cs" />
+    <Compile Include="Models\Wishlist.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -332,6 +342,11 @@
     <Content Include="Views\ProductFeedback\Details.cshtml" />
     <Content Include="Views\ProductFeedback\Edit.cshtml" />
     <Content Include="Views\ProductFeedback\Index.cshtml" />
+    <Content Include="Views\Wishlist\Create.cshtml" />
+    <Content Include="Views\Wishlist\Delete.cshtml" />
+    <Content Include="Views\Wishlist\Details.cshtml" />
+    <Content Include="Views\Wishlist\Edit.cshtml" />
+    <Content Include="Views\Wishlist\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -376,6 +391,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908201006524_feedback.resx">
       <DependentUpon>201908201006524_feedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908230813038_wishlist.resx">
+      <DependentUpon>201908230813038_wishlist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908230818032_wishlist1.resx">
+      <DependentUpon>201908230818032_wishlist1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

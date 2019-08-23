@@ -130,10 +130,13 @@
     }
     else
     {
-        <P>Product out of Stock</p>
+        <P>Product out of Stock</P>
     }
 
     |@Html.ActionLink("Go To Kart", "GoToKart") |
+        <a href="@Url.Action("Add", "Wishlist",new {Product_ID = Model.ID },null )">Add To Wishlist</a>|
+
+
 
     @Html.ActionLink("Back", "Index")
 </div>
