@@ -19,20 +19,20 @@ namespace Amazon.Controllers
         public ActionResult UserOrderHistory()
         {
             var id = Convert.ToInt32(Session["CustomerID"]);
-            var orderPlaced = db.OrderPlaced.Where(o =>o.Customer_ID == id).Include(o => o.Product);
+            var orderPlaced = db.OrderPlaced.Where(o =>o.Customer_ID == id).OrderByDescending(o=>o.DateTime).Include(o => o.Product);
             return View(orderPlaced.ToList());
         }
 
         public ActionResult SellerOrderRecived()
         {
             var id = Convert.ToInt32(Session["SellerID"]);
-            var orderPlaced = db.OrderPlaced.Where(o =>o.Product.Seller_ID == id).Include(o => o.Product);
+            var orderPlaced = db.OrderPlaced.Where(o =>o.Product.Seller_ID == id).OrderByDescending(o => o.DateTime).Include(o => o.Product);
             return View(orderPlaced.ToList());
         }
 
         public ActionResult AdminOrderHistory()
         {
-            var orderPlaced = db.OrderPlaced.Include(o => o.Product);
+            var orderPlaced = db.OrderPlaced.OrderByDescending(o => o.DateTime).Include(o => o.Product);
             return View(orderPlaced.ToList());
         }
 

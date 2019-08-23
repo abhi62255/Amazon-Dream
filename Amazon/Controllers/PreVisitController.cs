@@ -13,6 +13,24 @@ namespace Amazon.Controllers
         public ActionResult Index()
         {
             var id = Convert.ToInt64(Session["CustomerID"]);
+
+
+            //clear previsit after 1 month
+            var modelPV = _db.PreVisit.Where(p=>p.Customer_ID == id).ToList();
+            foreach (var pre in modelPV)
+            {
+                var timeDifference = DateTime.Now.Subtract(pre.Date).TotalDays;
+                if (timeDifference >= 30)       //if difference is 30 days
+                {
+                    _db.PreVisit.Remove(pre);
+                }
+            }
+            _db.SaveChanges();
+
+
+
+
+
             var preVisit = _db.PreVisit.Where(w => w.Customer_ID == id);
             return View(preVisit.ToList());
         }

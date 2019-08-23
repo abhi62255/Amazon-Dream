@@ -72,8 +72,8 @@ namespace Amazon.Controllers
 
 
             var modelP = _db.Product.Where(p => p.ID == Product_ID).FirstOrDefault();
-            var modelPD = _db.ProductDescrption.Where(p => p.ID == Product_ID).FirstOrDefault();
-            var modelPP = _db.ProductPicture.Where(p => p.ID == Product_ID).FirstOrDefault();
+            var modelPD = _db.ProductDescrption.Where(p => p.Product_ID == Product_ID).FirstOrDefault();
+            var modelPP = _db.ProductPicture.Where(p => p.Product_ID == Product_ID).FirstOrDefault();
             ProductPictureDescrption model = new ProductPictureDescrption();
 
 
