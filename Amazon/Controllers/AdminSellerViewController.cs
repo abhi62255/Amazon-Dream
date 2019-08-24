@@ -19,7 +19,15 @@ namespace Amazon.Controllers
         // GET: AdminSellerView
         public ActionResult Index(string searchTerm = null)
         {
-            return View(db.Seller.Where(p => searchTerm == null || p.SellerName.StartsWith(searchTerm)).ToList());
+            var modelS = db.Seller.Where(p => searchTerm == null || p.SellerName.StartsWith(searchTerm)).ToList();
+
+            var modelSR = db.SellerRequest.Select(s=>s.Seller).ToList();
+            foreach(var seller in modelSR)
+            {
+                modelS.Remove(seller);
+            }
+
+            return View(modelS);
         }
 
 

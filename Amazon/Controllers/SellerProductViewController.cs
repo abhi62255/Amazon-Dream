@@ -106,7 +106,8 @@ namespace Amazon.Controllers
             foreach (var i in modelPR)
             {
                 var pro = db.Product.Where(p => p.ID == i && p.Seller_ID ==id).FirstOrDefault();
-                modelP.Add(pro);
+                if(pro !=null)
+                    modelP.Add(pro);
             }
             return View(modelP);
         }

@@ -13,6 +13,18 @@ namespace Amazon.Controllers
         AKARTDBContext _db = new AKARTDBContext();
         public ActionResult Index(string searchTerm = null)
         {
+            if (Session["CustomerID"] != null && searchTerm != null && searchTerm != "") //to add to search history
+            {
+                var id = Convert.ToInt32(Session["CustomerID"]);
+                var modelSH = new SearchHistory();
+                modelSH.Customer_ID = id;
+                modelSH.SearchTag = searchTerm;
+                modelSH.Date = DateTime.Now;
+                _db.SearchHistory.Add(modelSH);
+                _db.SaveChanges();
+
+            }
+
             var modelP = _db.Product.Where(p => searchTerm == null || p.ProductName.StartsWith(searchTerm))
                 .ToList();
             var modelPR = _db.ProductRequest.Select(p => p.Product_ID).ToList();
@@ -93,10 +105,22 @@ namespace Amazon.Controllers
             ViewBag.Message = message;
             return View(model);
         }
-        [HttpPost]
+        [HttpPost]      //feeedback
         public ActionResult ProductDetail(int Product_ID,int Rating, string Review)
         {
             var id = Convert.ToInt32(Session["CustomerID"]);
+
+            var modelF = _db.Feedback.Where(f => f.Customer_ID == id && f.Product_ID == Product_ID).FirstOrDefault();
+            if(modelF != null)
+            {
+                modelF.Rating = Rating;
+                modelF.Review = Review;
+                _db.Entry(modelF).State = EntityState.Modified;
+                _db.SaveChanges();
+                return RedirectToAction("ProductDetail", new { Product_ID = Product_ID });
+
+
+            }
             var model = new Feedback();
             model.Rating = Rating;
             model.Review = Review;

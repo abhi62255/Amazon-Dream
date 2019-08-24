@@ -200,6 +200,10 @@
     <Compile Include="Migrations\201908231035087_previsit1.Designer.cs">
       <DependentUpon>201908231035087_previsit1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908240630442_searchHistory.cs" />
+    <Compile Include="Migrations\201908240630442_searchHistory.Designer.cs">
+      <DependentUpon>201908240630442_searchHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -215,6 +219,7 @@
     <Compile Include="Models\ProductPicture.cs" />
     <Compile Include="Models\ProductPictureDescrption.cs" />
     <Compile Include="Models\ProductRequest.cs" />
+    <Compile Include="Models\SearchHistory.cs" />
     <Compile Include="Models\Seller.cs" />
     <Compile Include="Models\SellerAddress.cs" />
     <Compile Include="Models\SellerRequest.cs" />
@@ -414,6 +419,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908231035087_previsit1.resx">
       <DependentUpon>201908231035087_previsit1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908240630442_searchHistory.resx">
+      <DependentUpon>201908240630442_searchHistory.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
