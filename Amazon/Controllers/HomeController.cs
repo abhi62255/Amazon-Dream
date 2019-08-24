@@ -27,9 +27,15 @@ namespace Amazon.Controllers
 
             var modelP = _db.Product.Where(p => searchTerm == null || p.ProductName.StartsWith(searchTerm))
                 .ToList();
-            var modelPR = _db.ProductRequest.Select(p => p.Product_ID).ToList();
+            var modelPR = _db.ProductRequest.Select(p => p.Product_ID).ToList();    //requested product wating for verification 
+            var modelDP = _db.DeletedProduct.Select(p => p.Product_ID).ToList();    //deleted product    
 
-            foreach(var pro in modelPR)
+            foreach (var pro in modelPR)
+            {
+                var model = _db.Product.Where(p => p.ID == pro).FirstOrDefault();
+                modelP.Remove(model);
+            }
+            foreach (var pro in modelDP)
             {
                 var model = _db.Product.Where(p => p.ID == pro).FirstOrDefault();
                 modelP.Remove(model);

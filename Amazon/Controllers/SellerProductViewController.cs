@@ -23,6 +23,7 @@ namespace Amazon.Controllers
             int id = Convert.ToInt32(Session["SellerID"]);
             var modelP = db.Product.Where(p => p.Seller_ID == id).ToList();
             var modelPR = db.ProductRequest.Select(p => p.Product_ID).ToList();
+            var modelDP = db.DeletedProduct.Where(p=>p.Product.Seller_ID == id).Select(p => p.Product_ID).ToList();
             var modelPP = new List<Product>();
             foreach (var pro in modelPR)
             {
@@ -32,6 +33,11 @@ namespace Amazon.Controllers
             foreach (var pro in modelPP)
             {
                 modelP.Remove(pro);
+            }
+            foreach (var pro in modelDP)
+            {
+                var model = db.Product.Where(p => p.ID == pro).FirstOrDefault();
+                modelP.Remove(model);
             }
 
             return View(modelP);
@@ -91,8 +97,26 @@ namespace Amazon.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)
         {
-            Product product = db.Product.Find(id);
-            db.Product.Remove(product);
+            var modelDP = new DeletedProduct();     //adding product to deletedProduct table
+            modelDP.Product_ID = id;
+            db.DeletedProduct.Add(modelDP);
+
+
+            Product product = db.Product.Find(id);          //making quantity zero of deleted product
+            product.ProductQuantity = 0;
+            db.Entry(product).State = EntityState.Modified;
+
+            var modelT = db.Trend.Where(t => t.Product_ID == id).FirstOrDefault();      //remove from trending
+            if(modelT !=null)
+            {
+                db.Trend.Remove(modelT);
+            }
+
+            var modelTR = db.TrendRequest.Where(t => t.Product_ID == id).FirstOrDefault();      //remove from trend Request
+            if(modelTR !=null)
+            {
+                db.TrendRequest.Remove(modelTR);
+            }
             db.SaveChanges();
             return RedirectToAction("Index");
         }

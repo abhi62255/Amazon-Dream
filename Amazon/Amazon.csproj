@@ -204,10 +204,15 @@
     <Compile Include="Migrations\201908240630442_searchHistory.Designer.cs">
       <DependentUpon>201908240630442_searchHistory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908240725035_deletedProduct.cs" />
+    <Compile Include="Migrations\201908240725035_deletedProduct.Designer.cs">
+      <DependentUpon>201908240725035_deletedProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\DeletedProduct.cs" />
     <Compile Include="Models\Feedback.cs" />
     <Compile Include="Models\Kart.cs" />
     <Compile Include="Models\OrderPlaced.cs" />
@@ -422,6 +427,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908240630442_searchHistory.resx">
       <DependentUpon>201908240630442_searchHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908240725035_deletedProduct.resx">
+      <DependentUpon>201908240725035_deletedProduct.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

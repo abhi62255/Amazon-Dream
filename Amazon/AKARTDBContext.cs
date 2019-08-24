@@ -27,6 +27,8 @@ namespace Amazon
         public virtual DbSet<Wishlist> Wishlist { get; set; }
         public virtual DbSet<PreVisit> PreVisit { get; set; }
         public virtual DbSet<SearchHistory> SearchHistory { get; set; }
+        public virtual DbSet<DeletedProduct> DeletedProduct { get; set; }
+
 
 
 
