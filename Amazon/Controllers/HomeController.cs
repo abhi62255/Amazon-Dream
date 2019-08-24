@@ -223,6 +223,9 @@ namespace Amazon.Controllers
         [HttpGet]
         public ActionResult NewAddress()
         {
+            ViewBag.City = _db.City.Select(x => new SelectListItem { Text = x.CityName, Value = x.CityName }).ToList();
+            ViewBag.State = _db.State.Select(x => new SelectListItem { Text = x.StateName, Value = x.StateName }).ToList();
+
             return View();
         }
 

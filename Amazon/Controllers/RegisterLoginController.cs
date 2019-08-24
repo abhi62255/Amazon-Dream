@@ -125,37 +125,56 @@ namespace Amazon.Controllers
         {
             if (ModelState.IsValid)
             {
-                model.Password = Hashing.Hash(model.Password);
-                model.ConfirmPassword = Hashing.Hash(model.ConfirmPassword);
-                Seller modelS = new Seller();
-                Address modelA = new Address();
+                var s = _db.Seller.Where(c => c.SEmail == model.SEmail).FirstOrDefault();
+                if(s == null)
+                {
+                    var cu = _db.Customer.Where(c => c.Email == model.SEmail).FirstOrDefault();
+                    if (cu == null)
+                    {
+                        var a = _db.Admin.Where(c => c.Email == model.SEmail).FirstOrDefault();
+                        if (a == null)
+                        {
+                            model.Password = Hashing.Hash(model.Password);
+                            model.ConfirmPassword = Hashing.Hash(model.ConfirmPassword);
+                            Seller modelS = new Seller();
+                            Address modelA = new Address();
 
-                modelS.SellerName = model.SellerName;
-                modelS.SEmail = model.SEmail;
-                modelS.Password = model.Password;
-                modelS.ConfirmPassword = model.ConfirmPassword;
+                            modelS.SellerName = model.SellerName;
+                            modelS.SEmail = model.SEmail;
+                            modelS.Password = model.Password;
+                            modelS.ConfirmPassword = model.ConfirmPassword;
 
-                modelA.AddressLine1 = model.AddressLine1;
-                modelA.City = model.City;
-                modelA.State = model.State;
-                modelA.PostalCode = model.PostalCode;
-                modelA.AddressType = model.AddressType;
-
-
-                _db.Seller.Add(modelS);
-                _db.SaveChanges();
-
-                modelA.Seller_ID = modelS.ID;
-                _db.Address.Add(modelA);
-                _db.SaveChanges();
+                            modelA.AddressLine1 = model.AddressLine1;
+                            modelA.City = model.City;
+                            modelA.State = model.State;
+                            modelA.PostalCode = model.PostalCode;
+                            modelA.AddressType = model.AddressType;
 
 
-                var modelSR = new SellerRequest();
-                modelSR.Seller_ID = modelS.ID;
-                _db.SellerRequest.Add(modelSR);
-                _db.SaveChanges();
+                            _db.Seller.Add(modelS);
+                            _db.SaveChanges();
 
-                return RedirectToAction("LogIn", "RegisterLogin");
+                            modelA.Seller_ID = modelS.ID;
+                            _db.Address.Add(modelA);
+                            _db.SaveChanges();
+
+
+                            var modelSR = new SellerRequest();
+                            modelSR.Seller_ID = modelS.ID;
+                            _db.SellerRequest.Add(modelSR);
+                            _db.SaveChanges();
+
+                            return RedirectToAction("LogIn", "RegisterLogin");
+                        }
+                        else
+                            ViewBag.message = "Email is already registered";
+                    }
+                    else
+                        ViewBag.message = "Email is already registered";
+                }
+                else
+                    ViewBag.message = "Email is already registered as a seller";
+
             }
             return View(model);
 

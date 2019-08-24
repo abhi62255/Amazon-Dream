@@ -28,6 +28,10 @@ namespace Amazon
         public virtual DbSet<PreVisit> PreVisit { get; set; }
         public virtual DbSet<SearchHistory> SearchHistory { get; set; }
         public virtual DbSet<DeletedProduct> DeletedProduct { get; set; }
+        public virtual DbSet<City> City { get; set; }
+        public virtual DbSet<State> State { get; set; }
+
+
 
 
 
