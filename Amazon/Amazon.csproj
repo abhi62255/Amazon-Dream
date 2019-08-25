@@ -212,12 +212,17 @@
     <Compile Include="Migrations\201908240849563_cityState.Designer.cs">
       <DependentUpon>201908240849563_cityState.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908251154190_deletedSeller.cs" />
+    <Compile Include="Migrations\201908251154190_deletedSeller.Designer.cs">
+      <DependentUpon>201908251154190_deletedSeller.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\DeletedProduct.cs" />
+    <Compile Include="Models\DeletedSeller.cs" />
     <Compile Include="Models\Feedback.cs" />
     <Compile Include="Models\Kart.cs" />
     <Compile Include="Models\OrderPlaced.cs" />
@@ -439,6 +444,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908240849563_cityState.resx">
       <DependentUpon>201908240849563_cityState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908251154190_deletedSeller.resx">
+      <DependentUpon>201908251154190_deletedSeller.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

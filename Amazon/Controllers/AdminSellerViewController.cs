@@ -22,7 +22,12 @@ namespace Amazon.Controllers
             var modelS = db.Seller.Where(p => searchTerm == null || p.SellerName.StartsWith(searchTerm)).ToList();
 
             var modelSR = db.SellerRequest.Select(s=>s.Seller).ToList();
+            var modelDS = db.DeletedSeller.Select(s => s.Seller).ToList();
             foreach(var seller in modelSR)
+            {
+                modelS.Remove(seller);
+            }
+            foreach (var seller in modelDS)
             {
                 modelS.Remove(seller);
             }
@@ -51,10 +56,44 @@ namespace Amazon.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Seller seller = db.Seller.Find(id);
-            var modelA = db.Address.Where(a => a.Seller_ID == seller.ID).FirstOrDefault();
-            db.Address.Remove(modelA);
-            db.Seller.Remove(seller);
+            var modelDP = new DeletedProduct();
+            var modelDS = new DeletedSeller();
+            modelDS.Seller_ID = id;
+            db.DeletedSeller.Add(modelDS);
+            var modelP = db.Product.Where(p => p.Seller_ID == id).ToList();
+            var modelPR = db.ProductRequest.Where(p => p.Product.Seller_ID == id).Select(p => p.Product).ToList();
+            foreach(var pro in modelPR)     //deleting product which are not approved by admin
+            {
+                modelP.Remove(pro);
+                //var model = db.ProductRequest.Where(p => p.ID == pro.ID).FirstOrDefault();
+                db.Product.Remove(pro);
+                db.SaveChanges();
+            }
+
+            foreach (var pro in modelP)
+            {
+                pro.ProductQuantity = 0;
+                db.Entry(pro).State = EntityState.Modified;
+                modelDP.Product_ID = pro.ID;
+                var modelT = db.Trend.Where(p => p.Product_ID == pro.ID).FirstOrDefault();      //removing product from Trend table
+                if(modelT != null)
+                {
+                    db.Trend.Remove(modelT);
+                }
+                var modelTR = db.TrendRequest.Where(p => p.Product_ID == pro.ID).FirstOrDefault();       //removing product from TrendRequest table
+                if (modelTR != null)
+                {
+                    db.TrendRequest.Remove(modelTR);
+                }
+
+                db.DeletedProduct.Add(modelDP);
+                db.SaveChanges();
+
+
+            }
+
+
+
             db.SaveChanges();
             return RedirectToAction("Index");
         }

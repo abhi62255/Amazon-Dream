@@ -95,3 +95,4 @@ D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.Migrations.previs
 D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.Migrations.searchHistory.resources
 D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.Migrations.deletedProduct.resources
 D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.Migrations.cityState.resources
+D:\Amazon POC CodeFirst\AmazonSolution\Amazon\obj\Debug\Amazon.Migrations.deletedSeller.resources

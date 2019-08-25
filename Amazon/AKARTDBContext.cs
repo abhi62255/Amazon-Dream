@@ -30,6 +30,8 @@ namespace Amazon
         public virtual DbSet<DeletedProduct> DeletedProduct { get; set; }
         public virtual DbSet<City> City { get; set; }
         public virtual DbSet<State> State { get; set; }
+        public virtual DbSet<DeletedSeller> DeletedSeller { get; set; }
+
 
 
 

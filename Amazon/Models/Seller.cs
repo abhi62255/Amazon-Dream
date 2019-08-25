@@ -37,7 +37,11 @@ namespace Amazon.Models
         public string ConfirmPassword { get; set; }
 
 
+
+
         public virtual ICollection<Address> Address { get; set; }
+        public virtual ICollection<DeletedSeller> DeletedSeller { get; set; }
+
 
 
     }
