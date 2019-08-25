@@ -82,17 +82,27 @@ namespace Amazon.Controllers
                 }
                 else
                 {
-                    Session["SellerID"] = seller.ID;
-                    Session["Identity"] = "SELLER";
-                    var id = Convert.ToInt32(Session["SellerID"]);
-                    var value = _db.SellerRequest.Where(s => s.Seller_ID == id).FirstOrDefault();
-                    if (value != null)
+                    var modelDS = _db.DeletedSeller.Where(s => s.Seller_ID == seller.ID).FirstOrDefault();  //checking if seller is Banned or not
+                    if(modelDS == null)
                     {
-                        ViewBag.message = "Your profile is still not verified";
+                        Session["SellerID"] = seller.ID;
+                        Session["Identity"] = "SELLER";
+                        var id = Convert.ToInt32(Session["SellerID"]);
+                        var value = _db.SellerRequest.Where(s => s.Seller_ID == id).FirstOrDefault();
+                        if (value != null)
+                        {
+                            ViewBag.message = "Your profile is still not verified";
+                            return View();
+                        }
+                        FormsAuthentication.SetAuthCookie("SELLER", false);
+                        return RedirectToAction("Index", "SellerHome");
+                    }
+                    else
+                    {
+                        ViewBag.message = "Your profile Banned from using our services";
                         return View();
                     }
-                    FormsAuthentication.SetAuthCookie("SELLER", false);
-                    return RedirectToAction("Index", "SellerHome");
+
                 }
             }
             else
