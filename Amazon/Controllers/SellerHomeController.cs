@@ -24,10 +24,13 @@ namespace Amazon.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddProduct(ProductAndDescription model)
+        public ActionResult AddProduct(ProductAndDescription model,string hidden)
         {
             if (ModelState.IsValid)
             {
+                hidden = hidden.Remove(hidden.Length - 1, 1) + "}";     //remove , and add } to the description
+                model.ProductDescription = hidden;
+
                 Product modelP = new Product();
                 ProductDescrption modelD = new ProductDescrption();
 

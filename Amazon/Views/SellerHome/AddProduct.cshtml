@@ -3,13 +3,32 @@
 @{
     ViewBag.Title = "AddProduct";
 }
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var html = '';
+        var jsonDescrption = '{';
+        $('#ADD').click(function () {
+            var key = $('#KEY').val();
+            var value = $('#VALUE').val();
+            if (key != '' && value != '') {
+                html += key + ' : ' + value;
+                jsonDescrption += "\'" + key + "\' : \'" + value + "\',";
+                $('#DESCRPTION').text(html).append('<br />');
+                $('#hidden').val(jsonDescrption);
+            }
+
+        });
+    });
+
+</script>
 
 <h2>AddProduct</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -80,14 +99,20 @@
             </div>
         </div>
 
+        <div id="DESCRPTION"></div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.ProductDescription, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ProductDescription, new { htmlAttributes = new { @class = "form-control" } })
+                @*@Html.EditorFor(model => model.ProductDescription, new { htmlAttributes = new { @class = "form-control", @Value = "5" } })*@
+                <input type="hidden" name="ProductDescription" value="5" />
+                <input type="text" id="KEY" placeholder="Property" />
+                <input type="text" id="VALUE" placeholder="Value" />
+                <input type="hidden" id="hidden" name="hidden"/>
+                <button id="ADD" type="button">ADD</button>
                 @Html.ValidationMessageFor(model => model.ProductDescription, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
