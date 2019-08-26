@@ -7,15 +7,17 @@
 <script type="text/javascript">
     $(document).ready(function () {
         var html = '';
-        var jsonDescrption = '{';
+        var jsonDescrption = '';
         $('#ADD').click(function () {
             var key = $('#KEY').val();
             var value = $('#VALUE').val();
             if (key != '' && value != '') {
-                html += key + ' : ' + value;
-                jsonDescrption += "\'" + key + "\' : \'" + value + "\',";
-                $('#DESCRPTION').text(html).append('<br />');
+                html += key + ' : ' + value+" :::::: ";
+                jsonDescrption += key + " : " + value + ",";
+                $('#DESCRPTION').text(html);
                 $('#hidden').val(jsonDescrption);
+                $('#VALUE').val("");
+                $('#KEY').val('');
             }
 
         });
@@ -99,7 +101,7 @@
             </div>
         </div>
 
-        <div id="DESCRPTION"></div>
+        <div id="DESCRPTION" style="font: bold"></div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.ProductDescription, htmlAttributes: new { @class = "control-label col-md-2" })

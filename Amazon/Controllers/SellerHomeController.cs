@@ -28,7 +28,7 @@ namespace Amazon.Controllers
         {
             if (ModelState.IsValid)
             {
-                hidden = hidden.Remove(hidden.Length - 1, 1) + "}";     //remove , and add } to the description
+                hidden = hidden.Remove(hidden.Length - 1, 1);     //remove , and add } to the description
                 model.ProductDescription = hidden;
 
                 Product modelP = new Product();
