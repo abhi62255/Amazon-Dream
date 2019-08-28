@@ -25,8 +25,7 @@ namespace Amazon.Controllers
 
             }
 
-            var modelP = _db.Product.Where(p => searchTerm == null || p.ProductName.StartsWith(searchTerm))
-                .ToList();
+            var modelP = _db.Product.Where(p => searchTerm == null || p.ProductName.StartsWith(searchTerm)).ToList();
             var modelPR = _db.ProductRequest.Select(p => p.Product_ID).ToList();    //requested product wating for verification 
             var modelDP = _db.DeletedProduct.Select(p => p.Product_ID).ToList();    //deleted product    
 
@@ -40,6 +39,18 @@ namespace Amazon.Controllers
                 var model = _db.Product.Where(p => p.ID == pro).FirstOrDefault();
                 modelP.Remove(model);
             }
+
+
+            var modelT = _db.Trend.Select(p => p.Product).ToList();
+            ViewData["TrendingProduct"] = modelT;
+
+            var obj = new HomePageProductSuggestion();
+            ViewData["SuggestedProduct"] = obj.ProductSuggestion();
+
+
+            //need to create view
+
+
 
             //making quantity 0 in kart to relese products to sale
             var modelK = _db.Kart.ToList();

@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<Amazon.Models.Product>
-
 @{
     ViewBag.Title = "Index";
 }
@@ -11,6 +10,17 @@
     <input type="submit" name="Search" />
 </form>
 <br />
+<h1>Trending Produts</h1>
+@Html.Partial("TrendingProduts", ViewData["TrendingProduct"])
+
+
+@if (Session["CustomerID"] != null)
+{
+    <h1>Suggested Products</h1>
+    @Html.Partial("SuggestedProduct", ViewData["SuggestedProduct"])
+
+}
+
 <table class="table">
     <tr>
         <th>
@@ -30,7 +40,6 @@
         </th>
         <th></th>
     </tr>
-
     @foreach (var item in Model)
     {
         <tr>
@@ -54,5 +63,7 @@
             </td>
         </tr>
     }
-
 </table>
+
+
+

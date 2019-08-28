@@ -134,6 +134,7 @@
     <Compile Include="Controllers\AdminSellerViewController.cs" />
     <Compile Include="Controllers\AdminTrendRequestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HomePageProductSuggestion.cs" />
     <Compile Include="Controllers\OrderHistoryController.cs" />
     <Compile Include="Controllers\PreVisitController.cs" />
     <Compile Include="Controllers\ProductFeedbackController.cs" />
@@ -379,6 +380,8 @@
     <Content Include="Views\Wishlist\Edit.cshtml" />
     <Content Include="Views\Wishlist\Index.cshtml" />
     <Content Include="Views\PreVisit\Index.cshtml" />
+    <Content Include="Views\Home\TrendingProduts.cshtml" />
+    <Content Include="Views\Home\SuggestedProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
